@@ -46,8 +46,9 @@ export function Button({
   );
 
   if (asChild) {
-    return React.cloneElement(children as React.ReactElement, {
-      className: cn(buttonClassName, (children as React.ReactElement).props?.className),
+    const child = children as React.ReactElement<{ className?: string }>;
+    return React.cloneElement(child, {
+      className: cn(buttonClassName, child.props.className),
     });
   }
 

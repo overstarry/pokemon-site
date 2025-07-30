@@ -46,7 +46,7 @@ export function PokemonImage({
   if (hasError) {
     // 显示占位符
     return (
-      <div 
+      <div
         className={cn(
           'flex items-center justify-center bg-gray-200 dark:bg-gray-700 rounded-lg',
           fill ? 'absolute inset-0' : '',
@@ -62,15 +62,15 @@ export function PokemonImage({
     );
   }
 
-  const imageProps = {
-    src: imgSrc,
-    alt,
-    className: cn('object-contain', className),
-    onError: handleError,
-    priority,
-    sizes,
-    ...(fill ? { fill: true } : { width, height }),
-  };
-
-  return <Image {...imageProps} />;
+  return (
+    <Image
+      src={imgSrc}
+      alt={alt}
+      className={cn('object-contain', className)}
+      onError={handleError}
+      priority={priority}
+      sizes={sizes}
+      {...(fill ? { fill: true } : { width, height })}
+    />
+  );
 }

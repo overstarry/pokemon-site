@@ -3,7 +3,8 @@ import type {
   PokemonDetail,
   PokemonSpeciesDetail,
   PokemonListResponse,
-  PokemonError
+  PokemonError,
+  PokemonApiResponse
 } from '@/types/pokemon';
 import { API_CONFIG, ERROR_MESSAGES } from '@/constants/pokemon';
 
@@ -61,7 +62,7 @@ export async function fetchPokemonList(
 // 获取单个 Pokemon 的基本信息
 export async function fetchPokemonBasic(identifier: string | number): Promise<Pokemon> {
   const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.POKEMON}/${identifier}`;
-  const data = await apiCall<any>(url);
+  const data = await apiCall<PokemonApiResponse>(url);
 
   return {
     id: data.id,
@@ -76,7 +77,7 @@ export async function fetchPokemonBasic(identifier: string | number): Promise<Po
 // 获取单个 Pokemon 的详细信息
 export async function fetchPokemonDetail(identifier: string | number): Promise<PokemonDetail> {
   const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.POKEMON}/${identifier}`;
-  const data = await apiCall<any>(url);
+  const data = await apiCall<PokemonApiResponse>(url);
 
   return {
     id: data.id,
@@ -172,7 +173,7 @@ export async function searchPokemon(query: string): Promise<Pokemon[]> {
     try {
       const pokemon = await fetchPokemonBasic(cleanQuery);
       return [pokemon];
-    } catch (error) {
+    } catch {
       // 如果直接搜索失败，返回空数组
       // 在实际应用中，可以实现更复杂的搜索逻辑
       return [];

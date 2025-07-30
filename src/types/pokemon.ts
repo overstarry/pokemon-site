@@ -1,5 +1,19 @@
 // Pokemon 相关的 TypeScript 类型定义
 
+// PokeAPI 原始响应接口
+export interface PokemonApiResponse {
+  id: number;
+  name: string;
+  height: number;
+  weight: number;
+  base_experience: number;
+  sprites: PokemonSprites;
+  types: PokemonType[];
+  stats: PokemonStat[];
+  abilities: PokemonAbility[];
+  species: PokemonSpecies;
+}
+
 export interface PokemonSprites {
   front_default: string;
   back_default?: string;

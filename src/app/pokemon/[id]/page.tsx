@@ -15,7 +15,7 @@ export default function PokemonDetailPage() {
   const params = useParams();
   const id = params.id as string;
 
-  const { pokemon, species, loading, error, refetch } = usePokemonDetail(id);
+  const { pokemon, species, loading, error } = usePokemonDetail(id);
   const [showShiny, setShowShiny] = useState(false);
 
   if (loading) {

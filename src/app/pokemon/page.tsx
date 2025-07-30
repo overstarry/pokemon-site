@@ -8,15 +8,11 @@ import PokemonGrid from '@/components/PokemonGrid';
 
 export default function PokemonPage() {
   const {
-    pokemon,
-    loading,
-    error,
     searchTerm,
     setSearchTerm,
     limit,
     setLimit,
-    isSearching,
-    refetch
+    isSearching
   } = usePokemonSearch(50);
 
   return (
