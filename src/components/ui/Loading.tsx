@@ -1,0 +1,108 @@
+import React from 'react';
+import { cn } from '@/lib/utils';
+
+export interface LoadingProps {
+  variant?: 'spinner' | 'dots' | 'pulse' | 'skeleton';
+  size?: 'sm' | 'md' | 'lg';
+  text?: string;
+  className?: string;
+}
+
+// 旋转加载器
+function SpinnerLoader({ size, className }: { size: string; className?: string }) {
+  return (
+    <div className={cn('animate-spin rounded-full border-b-2 border-white', size, className)} />
+  );
+}
+
+// 点状加载器
+function DotsLoader({ className }: { className?: string }) {
+  return (
+    <div className={cn('flex space-x-1', className)}>
+      {[0, 1, 2].map((i) => (
+        <div
+          key={i}
+          className="w-2 h-2 bg-white rounded-full animate-bounce"
+          style={{ animationDelay: `${i * 0.1}s` }}
+        />
+      ))}
+    </div>
+  );
+}
+
+// 脉冲加载器
+function PulseLoader({ size, className }: { size: string; className?: string }) {
+  return (
+    <div className={cn('bg-white/20 rounded-full animate-pulse', size, className)} />
+  );
+}
+
+// 骨架屏加载器
+function SkeletonLoader({ className }: { className?: string }) {
+  return (
+    <div className={cn('space-y-3', className)}>
+      <div className="w-full h-48 bg-white/20 rounded-lg animate-pulse" />
+      <div className="h-4 bg-white/20 rounded animate-pulse" />
+      <div className="h-3 bg-white/20 rounded w-2/3 animate-pulse" />
+    </div>
+  );
+}
+
+const sizeClasses = {
+  sm: 'w-4 h-4',
+  md: 'w-8 h-8',
+  lg: 'w-12 h-12',
+};
+
+export function Loading({
+  variant = 'spinner',
+  size = 'md',
+  text,
+  className,
+}: LoadingProps) {
+  const sizeClass = sizeClasses[size];
+
+  const renderLoader = () => {
+    switch (variant) {
+      case 'dots':
+        return <DotsLoader className={className} />;
+      case 'pulse':
+        return <PulseLoader size={sizeClass} className={className} />;
+      case 'skeleton':
+        return <SkeletonLoader className={className} />;
+      default:
+        return <SpinnerLoader size={sizeClass} className={className} />;
+    }
+  };
+
+  return (
+    <div className="flex flex-col items-center justify-center space-y-4">
+      {renderLoader()}
+      {text && (
+        <p className="text-white text-center animate-pulse">
+          {text}
+        </p>
+      )}
+    </div>
+  );
+}
+
+// 网格骨架屏组件
+export interface LoadingGridProps {
+  count?: number;
+  className?: string;
+}
+
+export function LoadingGrid({ count = 8, className }: LoadingGridProps) {
+  return (
+    <div className={cn('grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6', className)}>
+      {Array.from({ length: count }, (_, i) => (
+        <div key={i} className="bg-white/20 backdrop-blur-sm rounded-xl p-6 animate-pulse">
+          <div className="w-full h-48 bg-white/20 rounded-lg mb-4" />
+          <div className="h-4 bg-white/20 rounded mb-2" />
+          <div className="h-3 bg-white/20 rounded w-2/3" />
+        </div>
+      ))}
+    </div>
+  );
+}
