@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { getFallbackImageUrl } from '@/lib/api';
 import { cn } from '@/lib/utils';
@@ -30,6 +30,12 @@ export function PokemonImage({
 }: PokemonImageProps) {
   const [imgSrc, setImgSrc] = useState(src);
   const [hasError, setHasError] = useState(false);
+
+  // 监听src prop的变化，更新内部状态
+  useEffect(() => {
+    setImgSrc(src);
+    setHasError(false); // 重置错误状态
+  }, [src]);
 
   const handleError = () => {
     if (!hasError) {

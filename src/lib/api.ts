@@ -184,13 +184,21 @@ export async function searchPokemon(query: string): Promise<Pokemon[]> {
   }
 }
 
+// Utility function: Check if Pokemon has shiny version
+export function hasShinyVersion(pokemon: Pokemon): boolean {
+  return !!(
+    pokemon.sprites.other?.['official-artwork']?.front_shiny ||
+    pokemon.sprites.front_shiny
+  );
+}
+
 // Utility function: Get Pokemon image URL (with fallback options)
 export function getPokemonImageUrl(pokemon: Pokemon, useShiny: boolean = false): string {
   // Priority order of image sources
   const imageSources = [];
 
-  if (useShiny) {
-    // Shiny version
+  if (useShiny && hasShinyVersion(pokemon)) {
+    // Shiny version (only if available)
     if (pokemon.sprites.other?.['official-artwork']?.front_shiny) {
       imageSources.push(pokemon.sprites.other['official-artwork'].front_shiny);
     }
@@ -199,7 +207,7 @@ export function getPokemonImageUrl(pokemon: Pokemon, useShiny: boolean = false):
     }
   }
 
-  // Normal version
+  // Normal version (always as fallback)
   if (pokemon.sprites.other?.['official-artwork']?.front_default) {
     imageSources.push(pokemon.sprites.other['official-artwork'].front_default);
   }

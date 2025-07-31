@@ -1,16 +1,18 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PageLayout, PageContainer, PageTitle } from '@/components/layout';
 import { Button, Card, CardContent, Loading, ErrorMessage } from '@/components/ui';
 import { TYPE_COLORS, TYPE_TRANSLATIONS, DEFAULT_CONFIG } from '@/constants/pokemon';
-import { getPokemonImageUrl, formatPokemonId } from '@/lib/api';
+import { getPokemonImageUrl, formatPokemonId, hasShinyVersion } from '@/lib/api';
 import { useRandomPokemon } from '@/hooks';
 import { cn } from '@/lib/utils';
 
 export default function RandomPokemonPage() {
   const { pokemon, loading, error, fetchRandomPokemon } = useRandomPokemon(true);
+  const [showShiny, setShowShiny] = useState(false);
 
   return (
     <PageLayout>
@@ -64,13 +66,25 @@ export default function RandomPokemonPage() {
                 {/* Pokemon Image */}
                 <div className="relative w-80 h-80 mx-auto mb-6">
                   <Image
-                    src={getPokemonImageUrl(pokemon)}
+                    src={getPokemonImageUrl(pokemon, showShiny)}
                     alt={pokemon.name}
                     fill
                     className="object-contain"
                     sizes={DEFAULT_CONFIG.DETAIL_IMAGE_SIZE}
                   />
                 </div>
+
+                {/* Shiny Toggle */}
+                {hasShinyVersion(pokemon) && (
+                  <div className="mb-6">
+                    <Button
+                      onClick={() => setShowShiny(!showShiny)}
+                      variant={showShiny ? 'primary' : 'outline'}
+                    >
+                      ✨ {showShiny ? 'Normal Form' : 'Shiny Form'}
+                    </Button>
+                  </div>
+                )}
 
                 {/* Types */}
                 <div className="flex flex-wrap gap-3 justify-center mb-6">

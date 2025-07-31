@@ -9,7 +9,7 @@ import { PageLayout, PageContainer } from '@/components/layout';
 import { Button, Card, CardContent, Loading, ErrorMessage } from '@/components/ui';
 import { PokemonImage } from '@/components/ui/PokemonImage';
 import { TYPE_COLORS, TYPE_TRANSLATIONS, STAT_TRANSLATIONS, DEFAULT_CONFIG } from '@/constants/pokemon';
-import { getPokemonImageUrl, formatPokemonId, getPokemonDescription } from '@/lib/api';
+import { getPokemonImageUrl, formatPokemonId, getPokemonDescription, hasShinyVersion } from '@/lib/api';
 import { usePokemonDetail } from '@/hooks';
 import { cn } from '@/lib/utils';
 
@@ -112,14 +112,16 @@ export default function PokemonDetailPage() {
               </div>
 
               {/* Shiny Toggle */}
-              <div className="mb-6">
-                <Button
-                  onClick={() => setShowShiny(!showShiny)}
-                  variant={showShiny ? 'primary' : 'outline'}
-                >
-                  ✨ {showShiny ? 'Normal Form' : 'Shiny Form'}
-                </Button>
-              </div>
+              {hasShinyVersion(pokemon) && (
+                <div className="mb-6">
+                  <Button
+                    onClick={() => setShowShiny(!showShiny)}
+                    variant={showShiny ? 'primary' : 'outline'}
+                  >
+                    ✨ {showShiny ? 'Normal Form' : 'Shiny Form'}
+                  </Button>
+                </div>
+              )}
 
               {/* Types */}
               <div className="flex flex-wrap gap-3 justify-center mb-6">
