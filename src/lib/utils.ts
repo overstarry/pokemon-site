@@ -1,22 +1,22 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
-// 合并 Tailwind CSS 类名的工具函数
+// Utility function to merge Tailwind CSS class names
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-// 格式化数字的工具函数
+// Utility function to format numbers
 export function formatNumber(num: number): string {
-  return new Intl.NumberFormat('zh-CN').format(num);
+  return new Intl.NumberFormat('en-US').format(num);
 }
 
-// 延迟函数
+// Delay function
 export function delay(ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// 防抖函数
+// Debounce function
 export function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
   wait: number
@@ -28,7 +28,7 @@ export function debounce<T extends (...args: unknown[]) => unknown>(
   };
 }
 
-// 节流函数
+// Throttle function
 export function throttle<T extends (...args: unknown[]) => unknown>(
   func: T,
   limit: number

@@ -66,14 +66,14 @@ export const TYPE_GRADIENTS: Record<PokemonTypeName, string> = {
   fairy: 'from-pink-200 to-pink-400',
 };
 
-// 种族值中文翻译
+// Stat translations
 export const STAT_TRANSLATIONS: Record<StatName, string> = {
   hp: 'HP',
-  attack: '攻击',
-  defense: '防御',
-  'special-attack': '特攻',
-  'special-defense': '特防',
-  speed: '速度',
+  attack: 'Attack',
+  defense: 'Defense',
+  'special-attack': 'Sp. Attack',
+  'special-defense': 'Sp. Defense',
+  speed: 'Speed',
 };
 
 // 种族值颜色（根据数值范围）
@@ -107,19 +107,19 @@ export const DEFAULT_CONFIG = {
   DETAIL_IMAGE_SIZE: '320px',
 } as const;
 
-// 错误消息
+// Error messages
 export const ERROR_MESSAGES = {
-  FETCH_POKEMON_FAILED: '获取宝可梦数据失败',
-  POKEMON_NOT_FOUND: '宝可梦不存在',
-  NETWORK_ERROR: '网络连接失败，请检查网络设置',
-  RANDOM_POKEMON_FAILED: '获取随机宝可梦失败，请重试',
-  SEARCH_FAILED: '搜索失败，请重试',
+  FETCH_POKEMON_FAILED: 'Failed to fetch Pokemon data',
+  POKEMON_NOT_FOUND: 'Pokemon not found',
+  NETWORK_ERROR: 'Network connection failed, please check your network settings',
+  RANDOM_POKEMON_FAILED: 'Failed to fetch random Pokemon, please try again',
+  SEARCH_FAILED: 'Search failed, please try again',
 } as const;
 
-// 成功消息
+// Success messages
 export const SUCCESS_MESSAGES = {
-  POKEMON_LOADED: '宝可梦数据加载成功',
-  SEARCH_COMPLETED: '搜索完成',
+  POKEMON_LOADED: 'Pokemon data loaded successfully',
+  SEARCH_COMPLETED: 'Search completed',
 } as const;
 
 // 动画配置

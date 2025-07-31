@@ -17,8 +17,8 @@ export default function RandomPokemonPage() {
 
       <PageContainer className="py-16">
         <PageTitle
-          title="🎲 随机宝可梦"
-          subtitle="让命运为你选择一个神奇的宝可梦伙伴！"
+          title="🎲 Random Pokémon"
+          subtitle="Let fate choose an amazing Pokémon companion for you!"
         />
 
         <div className="text-center mb-12">
@@ -28,14 +28,14 @@ export default function RandomPokemonPage() {
             loading={loading}
             size="lg"
           >
-            {loading ? '抽取中...' : '🎲 抽取随机宝可梦'}
+            {loading ? 'Drawing...' : '🎲 Draw Random Pokémon'}
           </Button>
         </div>
 
         {/* Pokemon Display */}
         {loading && (
           <Loading
-            text="正在为你寻找神奇的宝可梦..."
+            text="Finding an amazing Pokémon for you..."
             size="lg"
           />
         )}
@@ -119,11 +119,11 @@ export default function RandomPokemonPage() {
             {/* Fun Facts */}
             <Card className="mt-8 text-center p-6">
               <CardContent>
-                <h3 className="text-2xl font-bold text-white mb-4">🎯 趣味小知识</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">🎯 Fun Facts</h3>
                 <p className="text-white/80 leading-relaxed">
-                  你知道吗？目前已经有超过1000种不同的宝可梦被发现！
-                  每一只宝可梦都有独特的属性、技能和特点。
-                  继续探索，发现更多神奇的宝可梦伙伴吧！
+                  Did you know? Over 1000 different Pokémon have been discovered so far!
+                  Each Pokémon has unique attributes, abilities, and characteristics.
+                  Keep exploring to discover more amazing Pokémon companions!
                 </p>
               </CardContent>
             </Card>

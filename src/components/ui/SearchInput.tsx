@@ -12,7 +12,7 @@ export function SearchInput({
   onClear,
   loading = false,
   className,
-  placeholder = '搜索宝可梦...',
+  placeholder = 'Search Pokémon...',
   ...props
 }: SearchInputProps) {
   const hasValue = value && String(value).length > 0;
@@ -35,8 +35,8 @@ export function SearchInput({
           )}
           {...props}
         />
-        
-        {/* 搜索图标 */}
+
+        {/* Search icon */}
         <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
           {loading ? (
             <div className="w-4 h-4 border-2 border-white/60 border-t-white rounded-full animate-spin" />
@@ -44,7 +44,7 @@ export function SearchInput({
             <span className="text-white/60">🔍</span>
           )}
         </div>
-        
+
         {/* 清除按钮 */}
         {hasValue && onClear && (
           <button
@@ -56,8 +56,8 @@ export function SearchInput({
           </button>
         )}
       </div>
-      
-      {/* 搜索建议或结果计数可以在这里添加 */}
+
+      {/* Search suggestions or result count can be added here */}
     </div>
   );
 }

@@ -11,20 +11,20 @@ export default function Home() {
       <PageContainer className="py-16 text-center">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-6xl font-bold text-white mb-6 drop-shadow-lg">
-            欢迎来到宝可梦世界！
+            Welcome to the Pokémon World!
           </h2>
           <p className="text-xl text-white/90 mb-8 leading-relaxed">
-            探索神奇的宝可梦世界，发现你最喜爱的宝可梦，了解它们的属性、技能和进化形态。
+            Explore the amazing world of Pokémon, discover your favorites, and learn about their types, abilities, and evolution forms.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg">
               <Link href="/pokemon">
-                🔍 开始探索
+                🔍 Start Exploring
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg">
               <Link href="/random">
-                🎲 随机宝可梦
+                🎲 Random Pokémon
               </Link>
             </Button>
           </div>
@@ -35,10 +35,10 @@ export default function Home() {
       <PageContainer className="py-16">
         <div className="text-center mb-12">
           <h3 className="text-4xl font-bold text-white mb-4 drop-shadow-lg">
-            热门宝可梦
+            Featured Pokémon
           </h3>
           <p className="text-white/80 text-lg">
-            发现最受欢迎的宝可梦
+            Discover the most popular Pokémon
           </p>
         </div>
         <PokemonGrid limit={8} />
@@ -51,27 +51,27 @@ export default function Home() {
             <Card className="text-center p-6">
               <CardContent>
                 <div className="text-4xl mb-4">📚</div>
-                <h4 className="text-xl font-bold text-white mb-2">完整图鉴</h4>
+                <h4 className="text-xl font-bold text-white mb-2">Complete Pokédex</h4>
                 <p className="text-white/80">
-                  浏览所有世代的宝可梦，了解它们的详细信息
+                  Browse Pokémon from all generations and learn their detailed information
                 </p>
               </CardContent>
             </Card>
             <Card className="text-center p-6">
               <CardContent>
                 <div className="text-4xl mb-4">⚡</div>
-                <h4 className="text-xl font-bold text-white mb-2">属性克制</h4>
+                <h4 className="text-xl font-bold text-white mb-2">Type Effectiveness</h4>
                 <p className="text-white/80">
-                  学习不同属性之间的克制关系，成为训练大师
+                  Learn type matchups and become a master trainer
                 </p>
               </CardContent>
             </Card>
             <Card className="text-center p-6">
               <CardContent>
                 <div className="text-4xl mb-4">🔄</div>
-                <h4 className="text-xl font-bold text-white mb-2">进化链</h4>
+                <h4 className="text-xl font-bold text-white mb-2">Evolution Chain</h4>
                 <p className="text-white/80">
-                  探索宝可梦的进化过程和进化条件
+                  Explore Pokémon evolution processes and requirements
                 </p>
               </CardContent>
             </Card>

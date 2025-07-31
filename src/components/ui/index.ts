@@ -1,4 +1,4 @@
-// 统一导出所有 UI 组件
+// Unified export for all UI components
 
 export { Button } from './Button';
 export type { ButtonProps } from './Button';

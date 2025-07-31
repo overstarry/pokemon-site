@@ -16,12 +16,12 @@ const nextConfig: NextConfig = {
         pathname: '/assets/cms2/img/pokedex/**',
       },
     ],
-    // 图片优化设置
+    // Image optimization settings
     formats: ['image/webp', 'image/avif'],
-    minimumCacheTTL: 60 * 60 * 24 * 7, // 7天缓存
+    minimumCacheTTL: 60 * 60 * 24 * 7, // 7 days cache
     dangerouslyAllowSVG: false,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    // 图片加载超时设置
+    // Image loading timeout settings
     unoptimized: false,
   },
 };

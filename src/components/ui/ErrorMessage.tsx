@@ -18,7 +18,7 @@ const errorVariants = {
 };
 
 export function ErrorMessage({
-  title = '出错了',
+  title = 'Something went wrong',
   message,
   variant = 'default',
   showRetry = true,
@@ -28,24 +28,24 @@ export function ErrorMessage({
   return (
     <div className={cn(errorVariants[variant], className)}>
       <div className="text-6xl mb-4">😢</div>
-      
+
       {title && (
         <h3 className="text-xl font-bold text-red-400 mb-2">
           {title}
         </h3>
       )}
-      
+
       <p className="text-red-300 mb-4 leading-relaxed">
         {message}
       </p>
-      
+
       {showRetry && onRetry && (
         <Button
           variant="danger"
           size="sm"
           onClick={onRetry}
         >
-          重试
+          Retry
         </Button>
       )}
     </div>
@@ -70,7 +70,7 @@ export function ErrorAlert({ message, onClose, className }: ErrorAlertProps) {
         <div className="text-red-400">⚠️</div>
         <p className="text-red-300 text-sm">{message}</p>
       </div>
-      
+
       {onClose && (
         <button
           onClick={onClose}

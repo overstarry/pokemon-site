@@ -98,23 +98,23 @@ export async function fetchPokemonSpecies(url: string): Promise<PokemonSpeciesDe
   return apiCall<PokemonSpeciesDetail>(url);
 }
 
-// 获取多个 Pokemon 的详细信息（用于列表页）
+// Get detailed information for multiple Pokemon (for list pages)
 export async function fetchPokemonListWithDetails(
   limit: number = API_CONFIG.LIMITS.DEFAULT_LIMIT,
   offset: number = 0
 ): Promise<Pokemon[]> {
   try {
-    // 首先获取 Pokemon 列表
+    // First get Pokemon list
     const listResponse = await fetchPokemonList(limit, offset);
 
-    // 并行获取每个 Pokemon 的详细信息
+    // Get detailed information for each Pokemon in parallel
     const pokemonDetails = await Promise.all(
       listResponse.results.map(async (pokemon) => {
         try {
           return await fetchPokemonBasic(pokemon.name);
         } catch (error) {
           console.error(`Failed to fetch details for ${pokemon.name}:`, error);
-          // 返回基本信息，避免整个列表失败
+          // Return basic info to avoid entire list failure
           return {
             id: 0,
             name: pokemon.name,
@@ -133,7 +133,7 @@ export async function fetchPokemonListWithDetails(
       })
     );
 
-    // 过滤掉获取失败的 Pokemon（id 为 0）
+    // Filter out failed Pokemon (id is 0)
     return pokemonDetails.filter(pokemon => pokemon.id > 0);
   } catch (error) {
     console.error('Failed to fetch Pokemon list with details:', error);
@@ -141,7 +141,7 @@ export async function fetchPokemonListWithDetails(
   }
 }
 
-// 获取随机 Pokemon
+// Get random Pokemon
 export async function fetchRandomPokemon(): Promise<Pokemon> {
   try {
     const randomId = Math.floor(Math.random() * API_CONFIG.LIMITS.RANDOM_RANGE) + 1;
@@ -152,30 +152,30 @@ export async function fetchRandomPokemon(): Promise<Pokemon> {
   }
 }
 
-// 搜索 Pokemon（通过名称）
+// Search Pokemon (by name)
 export async function searchPokemon(query: string): Promise<Pokemon[]> {
   try {
     if (!query.trim()) {
       return [];
     }
 
-    // 清理和验证搜索查询
+    // Clean and validate search query
     const cleanQuery = query.trim().toLowerCase()
-      .replace(/\s+/g, '-')  // 将空格转换为连字符
-      .replace(/[^a-z0-9\-]/g, ''); // 移除其他特殊字符
+      .replace(/\s+/g, '-')  // Convert spaces to hyphens
+      .replace(/[^a-z0-9\-]/g, ''); // Remove other special characters
 
-    // 验证查询是否有效（至少包含一个字符）
+    // Validate if query is valid (at least one character)
     if (!cleanQuery || cleanQuery.length === 0) {
       return [];
     }
 
-    // 尝试直接通过名称或ID搜索
+    // Try direct search by name or ID
     try {
       const pokemon = await fetchPokemonBasic(cleanQuery);
       return [pokemon];
     } catch {
-      // 如果直接搜索失败，返回空数组
-      // 在实际应用中，可以实现更复杂的搜索逻辑
+      // If direct search fails, return empty array
+      // In real applications, more complex search logic can be implemented
       return [];
     }
   } catch (error) {
@@ -207,27 +207,27 @@ export function getPokemonImageUrl(pokemon: Pokemon, useShiny: boolean = false):
     imageSources.push(pokemon.sprites.front_default);
   }
 
-  // 备用CDN图片（使用Pokemon ID）
+  // Backup CDN image (using Pokemon ID)
   imageSources.push(`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokemon.id.toString().padStart(3, '0')}.png`);
 
-  // 返回第一个可用的图片URL
+  // Return the first available image URL
   return imageSources[0] || '';
 }
 
-// 获取备用图片URL
+// Get fallback image URL
 export function getFallbackImageUrl(pokemonId: number): string {
   return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokemonId.toString().padStart(3, '0')}.png`;
 }
 
-// 工具函数：格式化 Pokemon 编号
+// Utility function: Format Pokemon ID
 export function formatPokemonId(id: number): string {
   return `#${id.toString().padStart(3, '0')}`;
 }
 
-// 工具函数：获取 Pokemon 描述（从物种信息中）
+// Utility function: Get Pokemon description (from species info)
 export function getPokemonDescription(species: PokemonSpeciesDetail): string {
   const englishEntry = species.flavor_text_entries
     .find(entry => entry.language.name === 'en');
 
-  return englishEntry?.flavor_text.replace(/\f/g, ' ') || '暂无描述';
+  return englishEntry?.flavor_text.replace(/\f/g, ' ') || 'No description available';
 }

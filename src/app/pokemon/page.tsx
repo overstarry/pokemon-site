@@ -20,8 +20,8 @@ export default function PokemonPage() {
 
       <PageContainer className="py-8">
         <PageTitle
-          title="宝可梦图鉴"
-          subtitle="探索所有的宝可梦，发现你的最爱"
+          title="Pokédex"
+          subtitle="Explore all Pokémon and discover your favorites"
         />
 
         {/* Search Bar */}
@@ -31,14 +31,14 @@ export default function PokemonPage() {
             onChange={(e) => setSearchTerm(e.target.value)}
             onClear={() => setSearchTerm('')}
             loading={isSearching}
-            placeholder="搜索宝可梦..."
+            placeholder="Search Pokémon..."
           />
         </div>
 
         {/* Controls */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
           <div className="flex items-center gap-2">
-            <span className="text-white/80">显示数量:</span>
+            <span className="text-white/80">Show:</span>
             <select
               value={limit}
               onChange={(e) => setLimit(Number(e.target.value))}
@@ -47,13 +47,13 @@ export default function PokemonPage() {
               <option value={20} className="bg-gray-800">20</option>
               <option value={50} className="bg-gray-800">50</option>
               <option value={100} className="bg-gray-800">100</option>
-              <option value={151} className="bg-gray-800">151 (第一世代)</option>
+              <option value={151} className="bg-gray-800">151 (Gen I)</option>
             </select>
           </div>
 
           <Button asChild>
             <Link href="/random">
-              🎲 随机宝可梦
+              🎲 Random Pokémon
             </Link>
           </Button>
         </div>

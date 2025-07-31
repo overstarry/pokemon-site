@@ -1,17 +1,17 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import type { 
-  Pokemon, 
-  PokemonError, 
-  UseRandomPokemonReturn 
+import type {
+  Pokemon,
+  PokemonError,
+  UseRandomPokemonReturn
 } from '@/types/pokemon';
-import { 
+import {
   fetchRandomPokemon,
-  PokemonApiError 
+  PokemonApiError
 } from '@/lib/api';
 
-// 随机 Pokemon Hook
+// Random Pokemon Hook
 export function useRandomPokemon(autoFetch: boolean = true): UseRandomPokemonReturn {
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
   const [loading, setLoading] = useState(false);
@@ -21,13 +21,13 @@ export function useRandomPokemon(autoFetch: boolean = true): UseRandomPokemonRet
     try {
       setLoading(true);
       setError(null);
-      
+
       const data = await fetchRandomPokemon();
       setPokemon(data);
     } catch (err) {
-      const error = err instanceof PokemonApiError 
-        ? err 
-        : new PokemonApiError('获取随机宝可梦失败');
+      const error = err instanceof PokemonApiError
+        ? err
+        : new PokemonApiError('Failed to fetch random Pokemon');
       setError(error);
       setPokemon(null);
       console.error('Error in useRandomPokemon:', err);

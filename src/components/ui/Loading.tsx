@@ -8,14 +8,14 @@ export interface LoadingProps {
   className?: string;
 }
 
-// 旋转加载器
+// Spinner loader
 function SpinnerLoader({ size, className }: { size: string; className?: string }) {
   return (
     <div className={cn('animate-spin rounded-full border-b-2 border-white', size, className)} />
   );
 }
 
-// 点状加载器
+// Dots loader
 function DotsLoader({ className }: { className?: string }) {
   return (
     <div className={cn('flex space-x-1', className)}>
@@ -30,14 +30,14 @@ function DotsLoader({ className }: { className?: string }) {
   );
 }
 
-// 脉冲加载器
+// Pulse loader
 function PulseLoader({ size, className }: { size: string; className?: string }) {
   return (
     <div className={cn('bg-white/20 rounded-full animate-pulse', size, className)} />
   );
 }
 
-// 骨架屏加载器
+// Skeleton loader
 function SkeletonLoader({ className }: { className?: string }) {
   return (
     <div className={cn('space-y-3', className)}>
@@ -87,7 +87,7 @@ export function Loading({
   );
 }
 
-// 网格骨架屏组件
+// Grid skeleton component
 export interface LoadingGridProps {
   count?: number;
   className?: string;

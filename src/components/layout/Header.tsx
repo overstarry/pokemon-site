@@ -10,9 +10,9 @@ export interface HeaderProps {
 }
 
 const navItems = [
-  { href: '/', label: '首页' },
-  { href: '/pokemon', label: '宝可梦图鉴' },
-  { href: '/random', label: '随机宝可梦' },
+  { href: '/', label: 'Home' },
+  { href: '/pokemon', label: 'Pokédex' },
+  { href: '/random', label: 'Random' },
 ];
 
 export function Header({ className }: HeaderProps) {
