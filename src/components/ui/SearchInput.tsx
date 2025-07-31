@@ -45,7 +45,7 @@ export function SearchInput({
           )}
         </div>
 
-        {/* Clear button */}}
+        {/* Clear button */}
         {hasValue && onClear && (
           <button
             type="button"
