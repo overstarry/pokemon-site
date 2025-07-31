@@ -28,7 +28,7 @@ export default function PokemonGrid({ limit = 20, searchTerm = '' }: PokemonGrid
       <div className="text-center py-12">
         <div className="text-6xl mb-4">🔍</div>
         <p className="text-white/80 text-xl">
-          {searchTerm ? `没有找到包含 "${searchTerm}" 的宝可梦` : '暂无宝可梦数据'}
+          {searchTerm ? `No Pokémon found containing "${searchTerm}"` : 'No Pokémon data available'}
         </p>
       </div>
     );

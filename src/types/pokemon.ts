@@ -1,6 +1,6 @@
-// Pokemon 相关的 TypeScript 类型定义
+// Pokemon related TypeScript type definitions
 
-// PokeAPI 原始响应接口
+// PokeAPI raw response interfaces
 export interface PokemonApiResponse {
   id: number;
   name: string;
@@ -51,7 +51,7 @@ export interface PokemonSpecies {
   url: string;
 }
 
-// 基础 Pokemon 接口（用于列表显示）
+// Basic Pokemon interface (for list display)
 export interface Pokemon {
   id: number;
   name: string;
@@ -62,7 +62,7 @@ export interface Pokemon {
   weight?: number;
 }
 
-// 详细 Pokemon 接口（用于详情页）
+// Detailed Pokemon interface (for detail pages)
 export interface PokemonDetail extends Pokemon {
   height: number;
   weight: number;
@@ -72,7 +72,7 @@ export interface PokemonDetail extends Pokemon {
   species: PokemonSpecies;
 }
 
-// Pokemon 物种信息接口
+// Pokemon species information interface
 export interface PokemonSpeciesDetail {
   flavor_text_entries: Array<{
     flavor_text: string;
@@ -85,7 +85,7 @@ export interface PokemonSpeciesDetail {
   };
 }
 
-// API 响应接口
+// API response interfaces
 export interface PokemonListResponse {
   count: number;
   next: string | null;
@@ -96,7 +96,7 @@ export interface PokemonListResponse {
   }>;
 }
 
-// 组件 Props 接口
+// Component Props interfaces
 export interface PokemonGridProps {
   limit?: number;
   searchTerm?: string;
@@ -107,13 +107,13 @@ export interface PokemonCardProps {
   showShiny?: boolean;
 }
 
-// 错误类型
+// Error types
 export interface PokemonError {
   message: string;
   status?: number;
 }
 
-// Hook 返回类型
+// Hook return types
 export interface UsePokemonReturn {
   pokemon: Pokemon[];
   loading: boolean;
@@ -136,7 +136,7 @@ export interface UseRandomPokemonReturn {
   fetchRandomPokemon: () => void;
 }
 
-// 常量类型
+// Constant types
 export type PokemonTypeName =
   | 'normal' | 'fire' | 'water' | 'electric' | 'grass' | 'ice'
   | 'fighting' | 'poison' | 'ground' | 'flying' | 'psychic' | 'bug'

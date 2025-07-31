@@ -90,11 +90,11 @@ export default function RandomPokemonPage() {
                 {/* Basic Info */}
                 <div className="grid grid-cols-2 gap-6 mb-8">
                   <Card variant="glass" className="p-4">
-                    <div className="text-white/60 mb-1">身高</div>
+                    <div className="text-white/60 mb-1">Height</div>
                     <div className="text-white font-bold text-xl">{pokemon.height ? (pokemon.height / 10) : 0} m</div>
                   </Card>
                   <Card variant="glass" className="p-4">
-                    <div className="text-white/60 mb-1">体重</div>
+                    <div className="text-white/60 mb-1">Weight</div>
                     <div className="text-white font-bold text-xl">{pokemon.weight ? (pokemon.weight / 10) : 0} kg</div>
                   </Card>
                 </div>
@@ -103,14 +103,14 @@ export default function RandomPokemonPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button asChild variant="secondary">
                     <Link href={`/pokemon/${pokemon.id}`}>
-                      📖 查看详细信息
+                      📖 View Details
                     </Link>
                   </Button>
                   <Button
                     onClick={fetchRandomPokemon}
                     variant="primary"
                   >
-                    🔄 再抽一次
+                    🔄 Draw Again
                   </Button>
                 </div>
               </CardContent>

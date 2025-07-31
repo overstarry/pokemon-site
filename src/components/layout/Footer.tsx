@@ -51,14 +51,16 @@ export function Footer({ className }: FooterProps) {
             </div>
           </div>
 
-          {/* Tech Stack */}
+          {/* Contact */}
           <div className="text-center md:text-right">
-            <h3 className="text-white font-semibold mb-4">Tech Stack</h3>
-            <div className="space-y-2 text-sm text-white/60">
-              <div>Next.js 15</div>
-              <div>React 19</div>
-              <div>TypeScript</div>
-              <div>Tailwind CSS</div>
+            <h3 className="text-white font-semibold mb-4">Contact</h3>
+            <div className="space-y-2 text-sm">
+              <a
+                href="mailto:pokemon@jasminides.com"
+                className="block text-yellow-400 hover:text-yellow-300 transition-colors"
+              >
+                📧 Email
+              </a>
             </div>
           </div>
         </div>

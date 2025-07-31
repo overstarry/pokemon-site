@@ -1,6 +1,6 @@
 import type { PokemonTypeName, StatName } from '@/types/pokemon';
 
-// Pokemon 属性颜色映射
+// Pokemon type color mapping
 export const TYPE_COLORS: Record<PokemonTypeName, string> = {
   normal: 'bg-gray-400',
   fire: 'bg-red-500',
@@ -22,29 +22,29 @@ export const TYPE_COLORS: Record<PokemonTypeName, string> = {
   fairy: 'bg-pink-300',
 };
 
-// Pokemon 属性中文翻译
+// Pokemon type English translations
 export const TYPE_TRANSLATIONS: Record<PokemonTypeName, string> = {
-  normal: '一般',
-  fire: '火',
-  water: '水',
-  electric: '电',
-  grass: '草',
-  ice: '冰',
-  fighting: '格斗',
-  poison: '毒',
-  ground: '地面',
-  flying: '飞行',
-  psychic: '超能力',
-  bug: '虫',
-  rock: '岩石',
-  ghost: '幽灵',
-  dragon: '龙',
-  dark: '恶',
-  steel: '钢',
-  fairy: '妖精',
+  normal: 'Normal',
+  fire: 'Fire',
+  water: 'Water',
+  electric: 'Electric',
+  grass: 'Grass',
+  ice: 'Ice',
+  fighting: 'Fighting',
+  poison: 'Poison',
+  ground: 'Ground',
+  flying: 'Flying',
+  psychic: 'Psychic',
+  bug: 'Bug',
+  rock: 'Rock',
+  ghost: 'Ghost',
+  dragon: 'Dragon',
+  dark: 'Dark',
+  steel: 'Steel',
+  fairy: 'Fairy',
 };
 
-// Pokemon 属性渐变色（用于更丰富的视觉效果）
+// Pokemon type gradient colors (for richer visual effects)
 export const TYPE_GRADIENTS: Record<PokemonTypeName, string> = {
   normal: 'from-gray-400 to-gray-500',
   fire: 'from-red-400 to-red-600',
@@ -76,7 +76,7 @@ export const STAT_TRANSLATIONS: Record<StatName, string> = {
   speed: 'Speed',
 };
 
-// 种族值颜色（根据数值范围）
+// Stat colors (based on value ranges)
 export const STAT_COLORS = {
   low: 'from-red-400 to-red-500',      // 0-50
   medium: 'from-yellow-400 to-orange-500', // 51-100
@@ -84,7 +84,7 @@ export const STAT_COLORS = {
   veryHigh: 'from-blue-400 to-purple-500', // 151+
 };
 
-// API 相关常量
+// API related constants
 export const API_CONFIG = {
   BASE_URL: 'https://pokeapi.co/api/v2',
   ENDPOINTS: {
@@ -95,11 +95,11 @@ export const API_CONFIG = {
   LIMITS: {
     DEFAULT_LIMIT: 20,
     MAX_LIMIT: 151,
-    RANDOM_RANGE: 1010, // 当前宝可梦总数
+    RANDOM_RANGE: 1010, // Current total Pokemon count
   },
 } as const;
 
-// 默认配置
+// Default configuration
 export const DEFAULT_CONFIG = {
   POKEMON_GRID_LIMIT: 20,
   SEARCH_DEBOUNCE_MS: 300,
@@ -122,7 +122,7 @@ export const SUCCESS_MESSAGES = {
   SEARCH_COMPLETED: 'Search completed',
 } as const;
 
-// 动画配置
+// Animation configuration
 export const ANIMATION_CONFIG = {
   DURATION: {
     FAST: 150,
@@ -135,7 +135,7 @@ export const ANIMATION_CONFIG = {
   },
 } as const;
 
-// 响应式断点
+// Responsive breakpoints
 export const BREAKPOINTS = {
   SM: '640px',
   MD: '768px',

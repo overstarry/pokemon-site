@@ -1,36 +1,36 @@
-// 设计系统 - 设计令牌和主题配置
+// Design System - Design tokens and theme configuration
 
-// 色彩调色板
+// Color palette
 export const colors = {
-  // 主色调
+  // Primary colors
   primary: {
     50: '#fefce8',
     100: '#fef9c3',
     200: '#fef08a',
     300: '#fde047',
-    400: '#facc15', // 主黄色
+    400: '#facc15', // Main yellow
     500: '#eab308',
     600: '#ca8a04',
     700: '#a16207',
     800: '#854d0e',
     900: '#713f12',
   },
-  
-  // 次要色调
+
+  // Secondary colors
   secondary: {
     50: '#eff6ff',
     100: '#dbeafe',
     200: '#bfdbfe',
     300: '#93c5fd',
-    400: '#60a5fa', // 主蓝色
+    400: '#60a5fa', // Main blue
     500: '#3b82f6',
     600: '#2563eb',
     700: '#1d4ed8',
     800: '#1e40af',
     900: '#1e3a8a',
   },
-  
-  // 成功色
+
+  // Success colors
   success: {
     50: '#f0fdf4',
     100: '#dcfce7',
@@ -43,8 +43,8 @@ export const colors = {
     800: '#166534',
     900: '#14532d',
   },
-  
-  // 警告色
+
+  // Warning colors
   warning: {
     50: '#fffbeb',
     100: '#fef3c7',
@@ -57,8 +57,8 @@ export const colors = {
     800: '#92400e',
     900: '#78350f',
   },
-  
-  // 错误色
+
+  // Error colors
   error: {
     50: '#fef2f2',
     100: '#fee2e2',
@@ -71,8 +71,8 @@ export const colors = {
     800: '#991b1b',
     900: '#7f1d1d',
   },
-  
-  // 中性色
+
+  // Neutral colors
   neutral: {
     50: '#fafafa',
     100: '#f5f5f5',
@@ -85,8 +85,8 @@ export const colors = {
     800: '#262626',
     900: '#171717',
   },
-  
-  // 渐变色
+
+  // Gradient colors
   gradients: {
     primary: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     secondary: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
@@ -97,7 +97,7 @@ export const colors = {
   },
 };
 
-// 间距系统
+// Spacing system
 export const spacing = {
   0: '0px',
   1: '4px',
@@ -119,7 +119,7 @@ export const spacing = {
   64: '256px',
 };
 
-// 字体系统
+// Typography system
 export const typography = {
   fontFamily: {
     sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -149,7 +149,7 @@ export const typography = {
   },
 };
 
-// 阴影系统
+// Shadow system
 export const shadows = {
   sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
   base: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
@@ -162,7 +162,7 @@ export const shadows = {
   pokemon: '0 8px 32px rgb(102 126 234 / 0.3)',
 };
 
-// 圆角系统
+// Border radius system
 export const borderRadius = {
   none: '0px',
   sm: '2px',
@@ -175,7 +175,7 @@ export const borderRadius = {
   full: '9999px',
 };
 
-// 动画系统
+// Animation system
 export const animations = {
   duration: {
     75: '75ms',
@@ -197,7 +197,7 @@ export const animations = {
   },
 };
 
-// 断点系统
+// Breakpoint system
 export const breakpoints = {
   sm: '640px',
   md: '768px',
@@ -206,7 +206,7 @@ export const breakpoints = {
   '2xl': '1536px',
 };
 
-// 主题配置
+// Theme configuration
 export const themes = {
   light: {
     background: colors.neutral[50],

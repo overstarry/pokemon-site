@@ -25,7 +25,7 @@ export default function PokemonDetailPage() {
       <PageLayout>
         <div className="flex items-center justify-center min-h-[60vh]">
           <Loading
-            text="加载中..."
+            text="Loading..."
             size="lg"
           />
         </div>
@@ -38,14 +38,14 @@ export default function PokemonDetailPage() {
       <PageLayout>
         <div className="flex items-center justify-center min-h-[60vh]">
           <ErrorMessage
-            title={error?.message || '宝可梦不存在'}
-            message="请检查宝可梦ID是否正确"
+            title={error?.message || 'Pokemon not found'}
+            message="Please check if the Pokemon ID is correct"
             showRetry={false}
           />
           <div className="mt-4">
             <Button asChild>
               <Link href="/pokemon">
-                返回图鉴
+                Back to Pokédex
               </Link>
             </Button>
           </div>
@@ -54,7 +54,7 @@ export default function PokemonDetailPage() {
     );
   }
 
-  const description = species ? getPokemonDescription(species) : '暂无描述';
+  const description = species ? getPokemonDescription(species) : 'No description available';
 
   return (
     <PageLayout>
@@ -64,7 +64,7 @@ export default function PokemonDetailPage() {
         <div className="flex items-center gap-4 mb-8">
           <Button asChild variant="outline">
             <Link href="/pokemon">
-              ← 返回图鉴
+              ← Back to Pokédex
             </Link>
           </Button>
 
@@ -72,13 +72,13 @@ export default function PokemonDetailPage() {
             {pokemon.id > 1 && (
               <Button asChild variant="outline" size="sm">
                 <Link href={`/pokemon/${pokemon.id - 1}`}>
-                  ← 上一个
+                  ← Previous
                 </Link>
               </Button>
             )}
             <Button asChild variant="outline" size="sm">
               <Link href={`/pokemon/${pokemon.id + 1}`}>
-                下一个 →
+                Next →
               </Link>
             </Button>
           </div>
@@ -117,7 +117,7 @@ export default function PokemonDetailPage() {
                   onClick={() => setShowShiny(!showShiny)}
                   variant={showShiny ? 'primary' : 'outline'}
                 >
-                  ✨ {showShiny ? '普通形态' : '闪光形态'}
+                  ✨ {showShiny ? 'Normal Form' : 'Shiny Form'}
                 </Button>
               </div>
 
@@ -148,18 +148,18 @@ export default function PokemonDetailPage() {
             <div className="space-y-6">
               {/* Basic Stats */}
               <Card variant="glass" className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-4">基本信息</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Basic Info</h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <span className="text-white/60">身高</span>
+                    <span className="text-white/60">Height</span>
                     <p className="text-white font-bold text-lg">{pokemon.height / 10} m</p>
                   </div>
                   <div>
-                    <span className="text-white/60">体重</span>
+                    <span className="text-white/60">Weight</span>
                     <p className="text-white font-bold text-lg">{pokemon.weight / 10} kg</p>
                   </div>
                   <div>
-                    <span className="text-white/60">基础经验</span>
+                    <span className="text-white/60">Base Experience</span>
                     <p className="text-white font-bold text-lg">{pokemon.base_experience}</p>
                   </div>
                 </div>
@@ -167,7 +167,7 @@ export default function PokemonDetailPage() {
 
               {/* Abilities */}
               <Card variant="glass" className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-4">特性</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Abilities</h3>
                 <div className="space-y-2">
                   {pokemon.abilities.map((ability, index) => (
                     <div key={index} className="flex items-center gap-2">
@@ -180,7 +180,7 @@ export default function PokemonDetailPage() {
                         {ability.ability.name}
                       </span>
                       {ability.is_hidden && (
-                        <span className="text-white/60 text-sm">(隐藏特性)</span>
+                        <span className="text-white/60 text-sm">(Hidden Ability)</span>
                       )}
                     </div>
                   ))}
@@ -189,7 +189,7 @@ export default function PokemonDetailPage() {
 
               {/* Base Stats */}
               <Card variant="glass" className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-4">种族值</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Base Stats</h3>
                 <div className="space-y-3">
                   {pokemon.stats.map((stat, index) => (
                     <div key={index}>
@@ -211,7 +211,7 @@ export default function PokemonDetailPage() {
                   ))}
                   <div className="pt-2 border-t border-white/20">
                     <div className="flex justify-between items-center">
-                      <span className="text-white font-bold">总和</span>
+                      <span className="text-white font-bold">Total</span>
                       <span className="text-white font-bold text-lg">
                         {pokemon.stats.reduce((sum, stat) => sum + stat.base_stat, 0)}
                       </span>

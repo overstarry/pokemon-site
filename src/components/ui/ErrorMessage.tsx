@@ -52,7 +52,7 @@ export function ErrorMessage({
   );
 }
 
-// 简化的错误提示组件
+// Simplified error alert component
 export interface ErrorAlertProps {
   message: string;
   onClose?: () => void;

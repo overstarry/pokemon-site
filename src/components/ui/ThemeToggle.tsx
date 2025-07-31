@@ -27,9 +27,9 @@ export function ThemeToggle({ className }: { className?: string }) {
 
   const getLabel = () => {
     if (theme === 'system') {
-      return '系统';
+      return 'System';
     }
-    return actualTheme === 'dark' ? '深色' : '浅色';
+    return actualTheme === 'dark' ? 'Dark' : 'Light';
   };
 
   return (
@@ -38,7 +38,7 @@ export function ThemeToggle({ className }: { className?: string }) {
       size="sm"
       onClick={toggleTheme}
       className={cn('gap-2', className)}
-      title={`当前主题: ${getLabel()}`}
+      title={`Current theme: ${getLabel()}`}
     >
       <span className="text-lg">{getIcon()}</span>
       <span className="hidden sm:inline">{getLabel()}</span>

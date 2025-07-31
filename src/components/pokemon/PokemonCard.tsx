@@ -45,7 +45,7 @@ export function PokemonCard({ pokemon, showShiny = false, className }: PokemonCa
             {pokemon.name}
           </h3>
 
-          {/* 属性标签 */}
+          {/* Type tags */}}
           <div className="flex flex-wrap gap-2 justify-center">
             {pokemon.types.map((type, index) => (
               <span

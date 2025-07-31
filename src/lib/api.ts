@@ -8,20 +8,20 @@ import type {
 } from '@/types/pokemon';
 import { API_CONFIG, ERROR_MESSAGES } from '@/constants/pokemon';
 
-// 基础 API 调用函数
+// Basic API call function
 async function apiCall<T>(url: string): Promise<T> {
   try {
     const response = await fetch(url);
 
     if (!response.ok) {
-      // 根据状态码提供更具体的错误信息
+      // Provide more specific error messages based on status code
       let errorMessage = `HTTP error! status: ${response.status}`;
       if (response.status === 404) {
-        errorMessage = '未找到指定的宝可梦';
+        errorMessage = 'Pokemon not found';
       } else if (response.status === 400) {
-        errorMessage = '请求参数无效';
+        errorMessage = 'Invalid request parameters';
       } else if (response.status >= 500) {
-        errorMessage = '服务器错误，请稍后重试';
+        errorMessage = 'Server error, please try again later';
       }
 
       throw new Error(errorMessage);
@@ -39,7 +39,7 @@ async function apiCall<T>(url: string): Promise<T> {
   }
 }
 
-// 自定义错误类
+// Custom error class
 export class PokemonApiError extends Error implements PokemonError {
   status?: number;
 
@@ -50,7 +50,7 @@ export class PokemonApiError extends Error implements PokemonError {
   }
 }
 
-// 获取 Pokemon 列表
+// Get Pokemon list
 export async function fetchPokemonList(
   limit: number = API_CONFIG.LIMITS.DEFAULT_LIMIT,
   offset: number = 0
@@ -59,7 +59,7 @@ export async function fetchPokemonList(
   return apiCall<PokemonListResponse>(url);
 }
 
-// 获取单个 Pokemon 的基本信息
+// Get basic information for a single Pokemon
 export async function fetchPokemonBasic(identifier: string | number): Promise<Pokemon> {
   const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.POKEMON}/${identifier}`;
   const data = await apiCall<PokemonApiResponse>(url);
@@ -74,7 +74,7 @@ export async function fetchPokemonBasic(identifier: string | number): Promise<Po
   };
 }
 
-// 获取单个 Pokemon 的详细信息
+// Get detailed information for a single Pokemon
 export async function fetchPokemonDetail(identifier: string | number): Promise<PokemonDetail> {
   const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.POKEMON}/${identifier}`;
   const data = await apiCall<PokemonApiResponse>(url);
@@ -93,7 +93,7 @@ export async function fetchPokemonDetail(identifier: string | number): Promise<P
   };
 }
 
-// 获取 Pokemon 物种信息
+// Get Pokemon species information
 export async function fetchPokemonSpecies(url: string): Promise<PokemonSpeciesDetail> {
   return apiCall<PokemonSpeciesDetail>(url);
 }
@@ -184,13 +184,13 @@ export async function searchPokemon(query: string): Promise<Pokemon[]> {
   }
 }
 
-// 工具函数：获取 Pokemon 图片 URL（带备用方案）
+// Utility function: Get Pokemon image URL (with fallback options)
 export function getPokemonImageUrl(pokemon: Pokemon, useShiny: boolean = false): string {
-  // 优先级顺序的图片源
+  // Priority order of image sources
   const imageSources = [];
 
   if (useShiny) {
-    // 闪光版本
+    // Shiny version
     if (pokemon.sprites.other?.['official-artwork']?.front_shiny) {
       imageSources.push(pokemon.sprites.other['official-artwork'].front_shiny);
     }
@@ -199,7 +199,7 @@ export function getPokemonImageUrl(pokemon: Pokemon, useShiny: boolean = false):
     }
   }
 
-  // 普通版本
+  // Normal version
   if (pokemon.sprites.other?.['official-artwork']?.front_default) {
     imageSources.push(pokemon.sprites.other['official-artwork'].front_default);
   }

@@ -34,13 +34,13 @@ export function Button({
   ...props
 }: ButtonProps) {
   const buttonClassName = cn(
-    // 基础样式
+    // Base styles
     'inline-flex items-center justify-center gap-2 font-bold rounded-full transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50 disabled:transform-none disabled:opacity-50 disabled:cursor-not-allowed',
-    // 变体样式
+    // Variant styles
     buttonVariants[variant],
-    // 尺寸样式
+    // Size styles
     buttonSizes[size],
-    // 加载状态
+    // Loading state
     loading && 'cursor-wait',
     className
   );

@@ -28,15 +28,15 @@ export function Card({
   return (
     <div
       className={cn(
-        // 基础样式
+        // Base styles
         'rounded-2xl transition-all duration-300 ease-out',
-        // 变体样式
+        // Variant styles
         cardVariants[variant],
-        // Hover 效果
+        // Hover effects
         hover && 'hover:shadow-xl hover:scale-[1.02] transform cursor-pointer',
-        // 发光效果
+        // Glow effect
         glow && 'shadow-glow',
-        // 特殊hover效果
+        // Special hover effects
         hover && variant === 'pokemon' && 'hover:shadow-pokemon hover:shadow-lg',
         hover && variant === 'glass' && 'hover:bg-card/30 hover:border-border/50',
         hover && variant === 'elevated' && 'hover:shadow-3xl hover:-translate-y-1',

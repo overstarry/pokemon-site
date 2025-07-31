@@ -1,10 +1,10 @@
-// 统一导出所有 Pokemon 相关的 hooks
+// Unified export for all Pokemon related hooks
 
 export { usePokemon, usePokemonSearch } from './usePokemon';
 export { usePokemonDetail } from './usePokemonDetail';
 export { useRandomPokemon } from './useRandomPokemon';
 
-// 重新导出类型
+// Re-export types
 export type {
   UsePokemonReturn,
   UsePokemonDetailReturn,

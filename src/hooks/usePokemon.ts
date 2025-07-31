@@ -1,19 +1,19 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import type { 
-  Pokemon, 
-  PokemonError, 
-  UsePokemonReturn 
+import type {
+  Pokemon,
+  PokemonError,
+  UsePokemonReturn
 } from '@/types/pokemon';
-import { 
-  fetchPokemonListWithDetails, 
+import {
+  fetchPokemonListWithDetails,
   searchPokemon,
-  PokemonApiError 
+  PokemonApiError
 } from '@/lib/api';
 import { DEFAULT_CONFIG } from '@/constants/pokemon';
 
-// Pokemon 列表 Hook
+// Pokemon list Hook
 export function usePokemon(
   limit: number = DEFAULT_CONFIG.POKEMON_GRID_LIMIT,
   searchTerm: string = ''
@@ -26,22 +26,22 @@ export function usePokemon(
     try {
       setLoading(true);
       setError(null);
-      
+
       let data: Pokemon[];
-      
+
       if (searchTerm.trim()) {
-        // 如果有搜索词，执行搜索
+        // If there's a search term, perform search
         data = await searchPokemon(searchTerm);
       } else {
-        // 否则获取普通列表
+        // Otherwise get normal list
         data = await fetchPokemonListWithDetails(limit);
       }
-      
+
       setPokemon(data);
     } catch (err) {
-      const error = err instanceof PokemonApiError 
-        ? err 
-        : new PokemonApiError('获取宝可梦数据失败');
+      const error = err instanceof PokemonApiError
+        ? err
+        : new PokemonApiError('Failed to fetch Pokemon data');
       setError(error);
       console.error('Error in usePokemon:', err);
     } finally {
@@ -65,13 +65,13 @@ export function usePokemon(
   };
 }
 
-// 搜索 Hook（带防抖）
+// Search Hook (with debouncing)
 export function usePokemonSearch(initialLimit: number = DEFAULT_CONFIG.POKEMON_GRID_LIMIT) {
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
   const [limit, setLimit] = useState(initialLimit);
 
-  // 防抖处理
+  // Debounce handling
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearchTerm(searchTerm);
