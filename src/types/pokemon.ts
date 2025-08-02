@@ -136,6 +136,15 @@ export interface UseRandomPokemonReturn {
   fetchRandomPokemon: () => void;
 }
 
+export interface UseDailyPokemonReturn {
+  pokemon: Pokemon | null;
+  loading: boolean;
+  error: PokemonError | null;
+  dateString: string;
+  pokemonId: number;
+  refetch: () => void;
+}
+
 // Constant types
 export type PokemonTypeName =
   | 'normal' | 'fire' | 'water' | 'electric' | 'grass' | 'ice'

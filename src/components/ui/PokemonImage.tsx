@@ -62,7 +62,7 @@ export function PokemonImage({
       >
         <div className="text-center text-gray-500 dark:text-gray-400">
           <div className="text-4xl mb-2">🔍</div>
-          <div className="text-sm">图片加载失败</div>
+          <div className="text-sm">Image failed to load</div>
         </div>
       </div>
     );

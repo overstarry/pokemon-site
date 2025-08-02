@@ -29,6 +29,11 @@ export default function Home() {
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg">
+              <Link href="/daily">
+                🌟 Today's Pokémon
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg">
               <Link href="/random">
                 🎲 Random Pokémon
               </Link>
