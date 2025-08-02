@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
@@ -18,6 +18,7 @@ const navItems = [
 
 export function Header({ className }: HeaderProps) {
   const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <header className={cn(
@@ -56,7 +57,11 @@ export function Header({ className }: HeaderProps) {
           </nav>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-white hover:text-yellow-300 transition-colors">
+          <button
+            className="md:hidden text-white hover:text-yellow-300 transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "关闭菜单" : "打开菜单"}
+          >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -67,34 +72,37 @@ export function Header({ className }: HeaderProps) {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
+                d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
               />
             </svg>
           </button>
         </div>
 
         {/* Mobile Navigation */}
-        <nav className="md:hidden mt-4 pt-4 border-t border-white/20">
-          <div className="flex flex-col space-y-2">
-            {navItems.map((item) => {
-              const isActive = pathname === item.href;
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    'py-2 px-4 rounded-lg font-medium transition-colors duration-300',
-                    isActive
-                      ? 'text-yellow-300 bg-white/10'
-                      : 'text-white hover:text-yellow-300 hover:bg-white/5'
-                  )}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </div>
-        </nav>
+        {isMobileMenuOpen && (
+          <nav className="md:hidden mt-4 pt-4 border-t border-white/20">
+            <div className="flex flex-col space-y-2">
+              {navItems.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={cn(
+                      'py-2 px-4 rounded-lg font-medium transition-colors duration-300',
+                      isActive
+                        ? 'text-yellow-300 bg-white/10'
+                        : 'text-white hover:text-yellow-300 hover:bg-white/5'
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </div>
+          </nav>
+        )}
       </div>
     </header>
   );

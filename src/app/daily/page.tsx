@@ -7,7 +7,7 @@ import { PageLayout, PageContainer, PageTitle } from '@/components/layout';
 import { Button, Card, CardContent, Loading, ErrorMessage, Breadcrumb } from '@/components/ui';
 import { TYPE_COLORS, TYPE_TRANSLATIONS, DEFAULT_CONFIG } from '@/constants/pokemon';
 import { getPokemonImageUrl, formatPokemonId, hasShinyVersion } from '@/lib/api';
-import { formatDateForDisplay } from '@/lib/daily';
+// import { formatDateForDisplay } from '@/lib/daily';
 import { useDailyPokemon } from '@/hooks';
 import { cn } from '@/lib/utils';
 
@@ -20,7 +20,7 @@ function generateDailyBreadcrumbs() {
 }
 
 export default function DailyPokemonPage() {
-  const { pokemon, loading, error, dateString, refetch } = useDailyPokemon();
+  const { pokemon, loading, error, refetch } = useDailyPokemon();
   const [showShiny, setShowShiny] = useState(false);
 
   return (
@@ -94,17 +94,17 @@ export default function DailyPokemonPage() {
                 <div className="grid grid-cols-2 gap-4 mb-6 text-white/80">
                   <div>
                     <span className="text-white/60">Height:</span>
-                    <span className="ml-2 font-medium">{pokemon.height / 10} m</span>
+                    <span className="ml-2 font-medium">{pokemon.height ? (pokemon.height / 10) : 'Unknown'} m</span>
                   </div>
                   <div>
                     <span className="text-white/60">Weight:</span>
-                    <span className="ml-2 font-medium">{pokemon.weight / 10} kg</span>
+                    <span className="ml-2 font-medium">{pokemon.weight ? (pokemon.weight / 10) : 'Unknown'} kg</span>
                   </div>
                 </div>
 
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button asChild>
+                  <Button asChild size="md">
                     <Link href={`/pokemon/${pokemon.id}`}>
                       📖 View Details
                     </Link>
@@ -113,6 +113,7 @@ export default function DailyPokemonPage() {
                   {hasShinyVersion(pokemon) && (
                     <Button
                       variant="outline"
+                      size="md"
                       onClick={() => setShowShiny(!showShiny)}
                     >
                       ✨ {showShiny ? 'Normal Form' : 'Shiny Form'}
@@ -121,6 +122,7 @@ export default function DailyPokemonPage() {
 
                   <Button
                     variant="outline"
+                    size="md"
                     onClick={refetch}
                   >
                     🔄 Refresh

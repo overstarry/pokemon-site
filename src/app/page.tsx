@@ -30,7 +30,7 @@ export default function Home() {
             </Button>
             <Button asChild variant="outline" size="lg">
               <Link href="/daily">
-                🌟 Today's Pokémon
+                🌟 Today&apos;s Pokémon
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg">

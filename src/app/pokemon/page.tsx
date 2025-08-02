@@ -52,7 +52,7 @@ export default function PokemonPage() {
             </select>
           </div>
 
-          <Button asChild>
+          <Button asChild size="md">
             <Link href="/random">
               🎲 Random Pokémon
             </Link>

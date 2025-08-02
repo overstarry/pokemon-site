@@ -42,7 +42,7 @@ export default function PokemonDetailClient() {
             showRetry={false}
           />
           <div className="mt-4">
-            <Button asChild>
+            <Button asChild size="md">
               <Link href="/pokemon">
                 Back to Pokédex
               </Link>
@@ -65,22 +65,22 @@ export default function PokemonDetailClient() {
         <Breadcrumb items={generatePokemonBreadcrumbs(pokemon.name, pokemon.id)} />
 
         {/* Navigation */}
-        <div className="flex items-center gap-4 mb-8">
-          <Button asChild variant="outline">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+          <Button asChild variant="outline" size="md">
             <Link href="/pokemon">
               ← Back to Pokédex
             </Link>
           </Button>
 
-          <div className="flex gap-2">
+          <div className="flex gap-3">
             {pokemon.id > 1 && (
-              <Button asChild variant="outline" size="sm">
+              <Button asChild variant="outline" size="md">
                 <Link href={`/pokemon/${pokemon.id - 1}`}>
                   ← Previous
                 </Link>
               </Button>
             )}
-            <Button asChild variant="outline" size="sm">
+            <Button asChild variant="outline" size="md">
               <Link href={`/pokemon/${pokemon.id + 1}`}>
                 Next →
               </Link>
@@ -121,6 +121,7 @@ export default function PokemonDetailClient() {
                   <Button
                     onClick={() => setShowShiny(!showShiny)}
                     variant={showShiny ? 'primary' : 'outline'}
+                    size="md"
                   >
                     ✨ {showShiny ? 'Normal Form' : 'Shiny Form'}
                   </Button>

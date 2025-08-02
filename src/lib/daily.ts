@@ -24,7 +24,7 @@ export function getUserId(): string {
     }
 
     return userId;
-  } catch (error) {
+  } catch {
     // When localStorage is not available, generate browser-based temporary identifier
     console.warn('localStorage not available, using temporary user ID');
     return generateBrowserFingerprint();

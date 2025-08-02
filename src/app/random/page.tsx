@@ -118,7 +118,7 @@ export default function RandomPokemonPage() {
 
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button asChild variant="secondary">
+                  <Button asChild variant="secondary" size="md">
                     <Link href={`/pokemon/${pokemon.id}`}>
                       📖 View Details
                     </Link>
@@ -126,6 +126,7 @@ export default function RandomPokemonPage() {
                   <Button
                     onClick={fetchRandomPokemon}
                     variant="primary"
+                    size="md"
                   >
                     🔄 Draw Again
                   </Button>
