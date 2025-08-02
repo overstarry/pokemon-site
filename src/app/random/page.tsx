@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PageLayout, PageContainer, PageTitle } from '@/components/layout';
-import { Button, Card, CardContent, Loading, ErrorMessage } from '@/components/ui';
+import { Button, Card, CardContent, Loading, ErrorMessage, Breadcrumb, generateRandomBreadcrumbs } from '@/components/ui';
 import { TYPE_COLORS, TYPE_TRANSLATIONS, DEFAULT_CONFIG } from '@/constants/pokemon';
 import { getPokemonImageUrl, formatPokemonId, hasShinyVersion } from '@/lib/api';
 import { useRandomPokemon } from '@/hooks';
@@ -18,6 +18,9 @@ export default function RandomPokemonPage() {
     <PageLayout>
 
       <PageContainer className="py-16">
+        {/* Breadcrumb Navigation */}
+        <Breadcrumb items={generateRandomBreadcrumbs()} />
+
         <PageTitle
           title="🎲 Random Pokémon"
           subtitle="Let fate choose an amazing Pokémon companion for you!"

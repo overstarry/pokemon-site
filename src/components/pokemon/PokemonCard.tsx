@@ -27,7 +27,7 @@ export function PokemonCard({ pokemon, showShiny = false, className }: PokemonCa
           <div className="relative w-full h-48 mb-4">
             <PokemonImage
               src={imageUrl}
-              alt={pokemon.name}
+              alt={`${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)} - ${pokemon.types.map(t => t.type.name).join('/')} type Pokémon #${pokemon.id}`}
               pokemonId={pokemon.id}
               fill
               className="group-hover:scale-110 transition-transform duration-300"

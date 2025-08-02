@@ -18,6 +18,8 @@ export type { SearchInputProps } from './SearchInput';
 export { PokemonImage } from './PokemonImage';
 export type { PokemonImageProps } from './PokemonImage';
 
+export { Breadcrumb, generatePokemonBreadcrumbs, generateRandomBreadcrumbs } from './Breadcrumb';
+
 export { ThemeToggle } from './ThemeToggle';
 
 export {

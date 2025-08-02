@@ -1,5 +1,6 @@
 'use client';
 
+
 import Link from 'next/link';
 import { PageLayout, PageContainer, PageTitle } from '@/components/layout';
 import { Button, SearchInput } from '@/components/ui';

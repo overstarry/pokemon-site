@@ -4,8 +4,60 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "PokéDex - Pokémon Encyclopedia",
-  description: "Explore the amazing world of Pokémon and discover your favorite companions",
+  title: {
+    default: "PokéDex - Pokémon Encyclopedia",
+    template: "%s | PokéDex"
+  },
+  description: "Explore the amazing world of Pokémon and discover your favorite companions. Complete Pokédex with detailed information about all Pokémon species, stats, abilities, and evolution chains.",
+  keywords: [
+    "pokemon",
+    "pokédex",
+    "pokedex",
+    "pokemon encyclopedia",
+    "pokemon database",
+    "pokemon stats",
+    "pokemon abilities",
+    "pokemon types",
+    "pokemon evolution",
+    "nintendo",
+    "game freak"
+  ],
+  authors: [{ name: "PokéDex Team" }],
+  creator: "PokéDex",
+  publisher: "PokéDex",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://pokemon.jasminides.com'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: '/',
+    siteName: 'PokéDex',
+    title: 'PokéDex - Pokémon Encyclopedia',
+    description: 'Explore the amazing world of Pokémon and discover your favorite companions',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PokéDex - Pokémon Encyclopedia',
+    description: 'Explore the amazing world of Pokémon and discover your favorite companions',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -15,6 +67,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Preconnect to external domains for better performance */}
+        <link rel="preconnect" href="https://raw.githubusercontent.com" />
+        <link rel="preconnect" href="https://assets.pokemon.com" />
+        <link rel="dns-prefetch" href="https://pokeapi.co" />
+      </head>
       <body className="antialiased">
         {/* Google Analytics */}
         <Script

@@ -2,17 +2,23 @@ import Link from 'next/link';
 import { PageLayout, PageContainer } from '@/components/layout';
 import { Button, Card, CardContent } from '@/components/ui';
 import PokemonGrid from '@/components/PokemonGrid';
+import { WebsiteStructuredData } from '@/components/seo/StructuredData';
 
 export default function Home() {
   return (
     <PageLayout>
+      {/* Website Structured Data for SEO */}
+      <WebsiteStructuredData
+        title="PokéDex - Pokémon Encyclopedia"
+        description="Explore the amazing world of Pokémon and discover your favorite companions"
+      />
 
       {/* Hero Section */}
       <PageContainer className="py-16 text-center">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-6xl font-bold text-white mb-6 drop-shadow-lg">
+          <h1 className="text-6xl font-bold text-white mb-6 drop-shadow-lg">
             Welcome to the Pokémon World!
-          </h2>
+          </h1>
           <p className="text-xl text-white/90 mb-8 leading-relaxed">
             Explore the amazing world of Pokémon, discover your favorites, and learn about their types, abilities, and evolution forms.
           </p>
@@ -34,9 +40,9 @@ export default function Home() {
       {/* Featured Pokemon Section */}
       <PageContainer className="py-16">
         <div className="text-center mb-12">
-          <h3 className="text-4xl font-bold text-white mb-4 drop-shadow-lg">
+          <h2 className="text-4xl font-bold text-white mb-4 drop-shadow-lg">
             Featured Pokémon
-          </h3>
+          </h2>
           <p className="text-white/80 text-lg">
             Discover the most popular Pokémon
           </p>
@@ -51,7 +57,7 @@ export default function Home() {
             <Card className="text-center p-6">
               <CardContent>
                 <div className="text-4xl mb-4">📚</div>
-                <h4 className="text-xl font-bold text-white mb-2">Complete Pokédex</h4>
+                <h3 className="text-xl font-bold text-white mb-2">Complete Pokédex</h3>
                 <p className="text-white/80">
                   Browse Pokémon from all generations and learn their detailed information
                 </p>
@@ -60,7 +66,7 @@ export default function Home() {
             <Card className="text-center p-6">
               <CardContent>
                 <div className="text-4xl mb-4">⚡</div>
-                <h4 className="text-xl font-bold text-white mb-2">Type Effectiveness</h4>
+                <h3 className="text-xl font-bold text-white mb-2">Type Effectiveness</h3>
                 <p className="text-white/80">
                   Learn type matchups and become a master trainer
                 </p>
@@ -69,7 +75,7 @@ export default function Home() {
             <Card className="text-center p-6">
               <CardContent>
                 <div className="text-4xl mb-4">🔄</div>
-                <h4 className="text-xl font-bold text-white mb-2">Evolution Chain</h4>
+                <h3 className="text-xl font-bold text-white mb-2">Evolution Chain</h3>
                 <p className="text-white/80">
                   Explore Pokémon evolution processes and requirements
                 </p>
