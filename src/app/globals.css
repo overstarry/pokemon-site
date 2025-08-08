@@ -16,44 +16,46 @@ body {
   font-family: var(--font-mono);
 }
 
-/* Base CSS variables */
+/* Minimalist CSS variables */
 :root {
-  /* Light theme */
-  --background: 250 250 250;
-  --foreground: 23 23 23;
-  --card: 245 245 245;
-  --card-foreground: 23 23 23;
-  --primary: 250 204 21;
-  --primary-foreground: 23 23 23;
-  --secondary: 96 165 250;
-  --secondary-foreground: 250 250 250;
-  --muted: 229 229 229;
-  --muted-foreground: 82 82 82;
-  --accent: 254 249 195;
-  --accent-foreground: 113 63 18;
-  --border: 212 212 212;
-  --input: 212 212 212;
-  --ring: 250 204 21;
-  --radius: 0.5rem;
+  /* Light theme - Clean and minimal */
+  --background: 255 255 255;
+  --foreground: 17 24 39;
+  --card: 255 255 255;
+  --card-foreground: 17 24 39;
+  --primary: 51 65 85;
+  --primary-foreground: 255 255 255;
+  --secondary: 14 165 233;
+  --secondary-foreground: 255 255 255;
+  --muted: 243 244 246;
+  --muted-foreground: 107 114 128;
+  --accent: 224 242 254;
+  --accent-foreground: 7 89 133;
+  --border: 229 231 235;
+  --input: 229 231 235;
+  --ring: 14 165 233;
+  --radius: 8px;
+  --subtle: 249 250 251;
 }
 
 .dark {
-  /* Dark theme */
-  --background: 23 23 23;
-  --foreground: 250 250 250;
-  --card: 38 38 38;
-  --card-foreground: 250 250 250;
-  --primary: 250 204 21;
-  --primary-foreground: 23 23 23;
-  --secondary: 37 99 235;
-  --secondary-foreground: 250 250 250;
-  --muted: 64 64 64;
-  --muted-foreground: 163 163 163;
-  --accent: 113 63 18;
-  --accent-foreground: 254 249 195;
-  --border: 64 64 64;
-  --input: 64 64 64;
-  --ring: 250 204 21;
+  /* Dark theme - Clean and sophisticated */
+  --background: 17 24 39;
+  --foreground: 249 250 251;
+  --card: 30 41 59;
+  --card-foreground: 249 250 251;
+  --primary: 148 163 184;
+  --primary-foreground: 17 24 39;
+  --secondary: 56 189 248;
+  --secondary-foreground: 17 24 39;
+  --muted: 55 65 81;
+  --muted-foreground: 156 163 175;
+  --accent: 12 74 110;
+  --accent-foreground: 186 230 253;
+  --border: 55 65 81;
+  --input: 55 65 81;
+  --ring: 56 189 248;
+  --subtle: 30 41 59;
 }
 
 @theme inline {
@@ -88,7 +90,13 @@ body {
 body {
   background-color: rgb(var(--background));
   color: rgb(var(--foreground));
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: -0.011em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Custom scrollbar */

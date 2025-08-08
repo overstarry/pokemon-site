@@ -1,36 +1,36 @@
-// Design System - Design tokens and theme configuration
+// Design System - Minimalist design tokens for clean aesthetic
 
-// Color palette
+// Color palette - Refined for minimalist approach
 export const colors = {
-  // Primary colors
+  // Primary colors - Subtle and sophisticated
   primary: {
-    50: '#fefce8',
-    100: '#fef9c3',
-    200: '#fef08a',
-    300: '#fde047',
-    400: '#facc15', // Main yellow
-    500: '#eab308',
-    600: '#ca8a04',
-    700: '#a16207',
-    800: '#854d0e',
-    900: '#713f12',
+    50: '#f8fafc',
+    100: '#f1f5f9',
+    200: '#e2e8f0',
+    300: '#cbd5e1',
+    400: '#94a3b8', // Refined primary
+    500: '#64748b',
+    600: '#475569',
+    700: '#334155',
+    800: '#1e293b',
+    900: '#0f172a',
   },
 
-  // Secondary colors
+  // Secondary colors - Muted blue accents
   secondary: {
-    50: '#eff6ff',
-    100: '#dbeafe',
-    200: '#bfdbfe',
-    300: '#93c5fd',
-    400: '#60a5fa', // Main blue
-    500: '#3b82f6',
-    600: '#2563eb',
-    700: '#1d4ed8',
-    800: '#1e40af',
-    900: '#1e3a8a',
+    50: '#f0f9ff',
+    100: '#e0f2fe',
+    200: '#bae6fd',
+    300: '#7dd3fc',
+    400: '#38bdf8', // Clean blue accent
+    500: '#0ea5e9',
+    600: '#0284c7',
+    700: '#0369a1',
+    800: '#075985',
+    900: '#0c4a6e',
   },
 
-  // Success colors
+  // Success colors - Minimal green
   success: {
     50: '#f0fdf4',
     100: '#dcfce7',
@@ -44,21 +44,21 @@ export const colors = {
     900: '#14532d',
   },
 
-  // Warning colors
+  // Warning colors - Subtle amber
   warning: {
     50: '#fffbeb',
     100: '#fef3c7',
     200: '#fde68a',
     300: '#fcd34d',
-    400: '#fbbf24',
-    500: '#f59e0b',
-    600: '#d97706',
-    700: '#b45309',
-    800: '#92400e',
-    900: '#78350f',
+    400: '#f59e0b',
+    500: '#d97706',
+    600: '#b45309',
+    700: '#92400e',
+    800: '#78350f',
+    900: '#451a03',
   },
 
-  // Error colors
+  // Error colors - Clean red
   error: {
     50: '#fef2f2',
     100: '#fee2e2',
@@ -72,28 +72,27 @@ export const colors = {
     900: '#7f1d1d',
   },
 
-  // Neutral colors
+  // Neutral colors - High contrast for readability
   neutral: {
-    50: '#fafafa',
-    100: '#f5f5f5',
-    200: '#e5e5e5',
-    300: '#d4d4d4',
-    400: '#a3a3a3',
-    500: '#737373',
-    600: '#525252',
-    700: '#404040',
-    800: '#262626',
-    900: '#171717',
+    50: '#ffffff',
+    100: '#f9fafb',
+    200: '#f3f4f6',
+    300: '#e5e7eb',
+    400: '#9ca3af',
+    500: '#6b7280',
+    600: '#4b5563',
+    700: '#374151',
+    800: '#1f2937',
+    900: '#111827',
   },
 
-  // Gradient colors
+  // Subtle gradients for minimal design
   gradients: {
-    primary: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    secondary: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-    success: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-    pokemon: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
-    sunset: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-    ocean: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    subtle: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)',
+    card: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+    hover: 'linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%)',
+    dark: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
+    accent: 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%)',
   },
 };
 
@@ -119,23 +118,23 @@ export const spacing = {
   64: '256px',
 };
 
-// Typography system
+// Typography system - Optimized for readability and hierarchy
 export const typography = {
   fontFamily: {
-    sans: ['Inter', 'system-ui', 'sans-serif'],
-    mono: ['JetBrains Mono', 'Consolas', 'monospace'],
+    sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+    mono: ['SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'monospace'],
   },
   fontSize: {
-    xs: ['12px', { lineHeight: '16px' }],
-    sm: ['14px', { lineHeight: '20px' }],
-    base: ['16px', { lineHeight: '24px' }],
-    lg: ['18px', { lineHeight: '28px' }],
-    xl: ['20px', { lineHeight: '28px' }],
-    '2xl': ['24px', { lineHeight: '32px' }],
-    '3xl': ['30px', { lineHeight: '36px' }],
-    '4xl': ['36px', { lineHeight: '40px' }],
-    '5xl': ['48px', { lineHeight: '1' }],
-    '6xl': ['60px', { lineHeight: '1' }],
+    xs: ['12px', { lineHeight: '18px', letterSpacing: '0.025em' }],
+    sm: ['14px', { lineHeight: '21px', letterSpacing: '0.025em' }],
+    base: ['16px', { lineHeight: '26px', letterSpacing: '0' }],
+    lg: ['18px', { lineHeight: '30px', letterSpacing: '-0.025em' }],
+    xl: ['20px', { lineHeight: '32px', letterSpacing: '-0.025em' }],
+    '2xl': ['24px', { lineHeight: '36px', letterSpacing: '-0.025em' }],
+    '3xl': ['32px', { lineHeight: '44px', letterSpacing: '-0.05em' }],
+    '4xl': ['40px', { lineHeight: '48px', letterSpacing: '-0.05em' }],
+    '5xl': ['48px', { lineHeight: '54px', letterSpacing: '-0.075em' }],
+    '6xl': ['64px', { lineHeight: '68px', letterSpacing: '-0.075em' }],
   },
   fontWeight: {
     thin: '100',
@@ -206,40 +205,55 @@ export const breakpoints = {
   '2xl': '1536px',
 };
 
-// Theme configuration
+// Theme configuration - Minimalist light and dark themes
 export const themes = {
   light: {
     background: colors.neutral[50],
     foreground: colors.neutral[900],
-    card: colors.neutral[100],
+    card: colors.neutral[50],
     cardForeground: colors.neutral[900],
-    primary: colors.primary[400],
-    primaryForeground: colors.neutral[900],
-    secondary: colors.secondary[400],
+    primary: colors.primary[700],
+    primaryForeground: colors.neutral[50],
+    secondary: colors.secondary[500],
     secondaryForeground: colors.neutral[50],
     muted: colors.neutral[200],
     mutedForeground: colors.neutral[600],
-    accent: colors.primary[100],
-    accentForeground: colors.primary[900],
-    border: colors.neutral[300],
-    input: colors.neutral[300],
-    ring: colors.primary[400],
+    accent: colors.secondary[100],
+    accentForeground: colors.secondary[800],
+    border: colors.neutral[200],
+    input: colors.neutral[200],
+    ring: colors.secondary[400],
+    subtle: colors.neutral[100],
   },
   dark: {
     background: colors.neutral[900],
-    foreground: colors.neutral[50],
+    foreground: colors.neutral[100],
     card: colors.neutral[800],
-    cardForeground: colors.neutral[50],
+    cardForeground: colors.neutral[100],
     primary: colors.primary[400],
     primaryForeground: colors.neutral[900],
-    secondary: colors.secondary[600],
-    secondaryForeground: colors.neutral[50],
+    secondary: colors.secondary[400],
+    secondaryForeground: colors.neutral[900],
     muted: colors.neutral[700],
-    mutedForeground: colors.neutral[400],
-    accent: colors.primary[800],
-    accentForeground: colors.primary[100],
+    mutedForeground: colors.neutral[300],
+    accent: colors.secondary[800],
+    accentForeground: colors.secondary[200],
     border: colors.neutral[700],
     input: colors.neutral[700],
-    ring: colors.primary[400],
+    ring: colors.secondary[400],
+    subtle: colors.neutral[800],
   },
+};
+
+// Minimalist spacing scale - More generous for clean design
+export const minimalSpacing = {
+  xs: '8px',
+  sm: '12px',
+  md: '16px',
+  lg: '24px',
+  xl: '32px',
+  '2xl': '48px',
+  '3xl': '64px',
+  '4xl': '96px',
+  '5xl': '128px',
 };

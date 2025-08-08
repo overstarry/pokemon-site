@@ -25,9 +25,13 @@ export default function PokemonGrid({ limit = 20, searchTerm = '' }: PokemonGrid
 
   if (pokemon.length === 0) {
     return (
-      <div className="text-center py-12">
-        <div className="text-6xl mb-4">🔍</div>
-        <p className="text-white/80 text-xl">
+      <div className="text-center py-16">
+        <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg className="w-8 h-8 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+        <p className="text-muted-foreground text-lg">
           {searchTerm ? `No Pokémon found containing "${searchTerm}"` : 'No Pokémon data available'}
         </p>
       </div>

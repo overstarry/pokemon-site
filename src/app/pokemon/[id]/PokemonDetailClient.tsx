@@ -89,7 +89,7 @@ export default function PokemonDetailClient() {
         </div>
 
         {/* Main Content */}
-        <Card variant="glass" className="overflow-hidden">
+        <Card variant="elevated" className="overflow-hidden">
           <CardContent className="grid lg:grid-cols-2 gap-8 p-8">
             {/* Left Column - Image and Basic Info */}
             <div className="text-center">
@@ -154,7 +154,7 @@ export default function PokemonDetailClient() {
             {/* Right Column - Stats and Details */}
             <div className="space-y-6">
               {/* Basic Stats */}
-              <Card variant="glass" className="p-6">
+              <Card variant="elevated" className="p-6">
                 <h3 className="text-2xl font-bold text-white mb-4">Basic Info</h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
@@ -173,7 +173,7 @@ export default function PokemonDetailClient() {
               </Card>
 
               {/* Abilities */}
-              <Card variant="glass" className="p-6">
+              <Card variant="elevated" className="p-6">
                 <h3 className="text-2xl font-bold text-white mb-4">Abilities</h3>
                 <div className="space-y-2">
                   {pokemon.abilities.map((ability, index) => (
@@ -195,7 +195,7 @@ export default function PokemonDetailClient() {
               </Card>
 
               {/* Base Stats */}
-              <Card variant="glass" className="p-6">
+              <Card variant="elevated" className="p-6">
                 <h3 className="text-2xl font-bold text-white mb-4">Base Stats</h3>
                 <div className="space-y-3">
                   {pokemon.stats.map((stat, index) => (

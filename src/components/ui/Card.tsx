@@ -2,25 +2,20 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: 'default' | 'glass' | 'solid' | 'gradient' | 'pokemon' | 'elevated';
+  variant?: 'default' | 'subtle' | 'elevated';
   hover?: boolean;
-  glow?: boolean;
   children: React.ReactNode;
 }
 
 const cardVariants = {
-  default: 'bg-card/80 backdrop-blur-sm border border-border/50 shadow-md',
-  glass: 'bg-card/20 backdrop-blur-md border border-border/30 shadow-lg',
-  solid: 'bg-card shadow-lg border border-border',
-  gradient: 'bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-border/30 shadow-lg',
-  pokemon: 'bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 backdrop-blur-md border border-white/20 shadow-pokemon',
-  elevated: 'bg-card shadow-2xl border border-border/50 shadow-primary/10',
+  default: 'bg-card border border-border shadow-sm',
+  subtle: 'bg-subtle border border-border/50',
+  elevated: 'bg-card border border-border shadow-lg',
 };
 
 export function Card({
   variant = 'default',
-  hover = true,
-  glow = false,
+  hover = false,
   className,
   children,
   ...props
@@ -28,18 +23,12 @@ export function Card({
   return (
     <div
       className={cn(
-        // Base styles
-        'rounded-2xl transition-all duration-300 ease-out',
+        // Base styles - Minimalist approach
+        'rounded-xl transition-all duration-200 ease-out',
         // Variant styles
         cardVariants[variant],
-        // Hover effects
-        hover && 'hover:shadow-xl hover:scale-[1.02] transform cursor-pointer',
-        // Glow effect
-        glow && 'shadow-glow',
-        // Special hover effects
-        hover && variant === 'pokemon' && 'hover:shadow-pokemon hover:shadow-lg',
-        hover && variant === 'glass' && 'hover:bg-card/30 hover:border-border/50',
-        hover && variant === 'elevated' && 'hover:shadow-3xl hover:-translate-y-1',
+        // Subtle hover effects
+        hover && 'hover:shadow-md hover:border-secondary/30 cursor-pointer',
         className
       )}
       {...props}
@@ -56,7 +45,7 @@ export interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
 export function CardHeader({ className, children, ...props }: CardHeaderProps) {
   return (
     <div
-      className={cn('p-6 pb-0', className)}
+      className={cn('p-6 pb-2', className)}
       {...props}
     >
       {children}
@@ -86,7 +75,7 @@ export interface CardFooterProps extends React.HTMLAttributes<HTMLDivElement> {
 export function CardFooter({ className, children, ...props }: CardFooterProps) {
   return (
     <div
-      className={cn('p-6 pt-0', className)}
+      className={cn('p-6 pt-2', className)}
       {...props}
     >
       {children}

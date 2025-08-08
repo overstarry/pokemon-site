@@ -10,17 +10,17 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 const buttonVariants = {
-  primary: 'bg-yellow-400 hover:bg-yellow-500 text-gray-800 shadow-lg hover:shadow-xl',
-  secondary: 'bg-blue-500 hover:bg-blue-600 text-white shadow-lg hover:shadow-xl',
-  outline: 'bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-sm',
-  ghost: 'bg-transparent hover:bg-white/10 text-white',
-  danger: 'bg-red-500 hover:bg-red-600 text-white shadow-lg hover:shadow-xl',
+  primary: 'bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm hover:shadow-md',
+  secondary: 'bg-secondary hover:bg-secondary/90 text-secondary-foreground shadow-sm hover:shadow-md',
+  outline: 'bg-transparent hover:bg-accent text-foreground border border-border hover:border-secondary/50',
+  ghost: 'bg-transparent hover:bg-subtle text-foreground',
+  danger: 'bg-error-500 hover:bg-error-600 text-white shadow-sm hover:shadow-md',
 };
 
 const buttonSizes = {
-  sm: 'py-2 px-4 text-sm',
-  md: 'py-3 px-6 text-base',
-  lg: 'py-4 px-8 text-lg',
+  sm: 'py-2 px-3 text-sm',
+  md: 'py-2.5 px-4 text-sm',
+  lg: 'py-3 px-6 text-base',
 };
 
 export function Button({
@@ -34,8 +34,8 @@ export function Button({
   ...props
 }: ButtonProps) {
   const buttonClassName = cn(
-    // Base styles
-    'inline-flex items-center justify-center gap-2 font-bold rounded-full transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50 disabled:transform-none disabled:opacity-50 disabled:cursor-not-allowed',
+    // Base styles - Minimalist approach
+    'inline-flex items-center justify-center gap-2 font-medium rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed',
     // Variant styles
     buttonVariants[variant],
     // Size styles

@@ -11,78 +11,93 @@ export function Footer({ className }: FooterProps) {
 
   return (
     <footer className={cn(
-      'bg-gray-900/50 backdrop-blur-md py-8 border-t border-white/20',
+      'bg-subtle border-t border-border py-12',
+      'dark:bg-background',
       className
     )}>
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid md:grid-cols-3 gap-12">
           {/* Logo and description */}
           <div className="text-center md:text-left">
-            <div className="text-2xl font-bold text-white mb-2">
-              🌟 PokéDex
+            <div className="text-xl font-semibold text-foreground mb-3">
+              Pokédex
             </div>
-            <p className="text-white/60 text-sm">
+            <p className="text-muted-foreground text-sm leading-relaxed">
               Explore the amazing world of Pokémon and discover your favorite companions
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="text-center">
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
-            <div className="space-y-2">
+            <h3 className="text-foreground font-medium mb-4">Navigation</h3>
+            <div className="space-y-3">
               <Link
                 href="/"
-                className="block text-white/60 hover:text-white transition-colors text-sm"
+                className="block text-muted-foreground hover:text-secondary transition-colors text-sm"
               >
                 Home
               </Link>
               <Link
                 href="/pokemon"
-                className="block text-white/60 hover:text-white transition-colors text-sm"
+                className="block text-muted-foreground hover:text-secondary transition-colors text-sm"
               >
                 Pokédex
               </Link>
               <Link
+                href="/daily"
+                className="block text-muted-foreground hover:text-secondary transition-colors text-sm"
+              >
+                Daily
+              </Link>
+              <Link
                 href="/random"
-                className="block text-white/60 hover:text-white transition-colors text-sm"
+                className="block text-muted-foreground hover:text-secondary transition-colors text-sm"
               >
                 Random
               </Link>
             </div>
           </div>
 
-          {/* Contact */}
+          {/* Resources */}
           <div className="text-center md:text-right">
-            <h3 className="text-white font-semibold mb-4">Contact</h3>
-            <div className="space-y-2 text-sm">
+            <h3 className="text-foreground font-medium mb-4">Resources</h3>
+            <div className="space-y-3 text-sm">
+              <a
+                href="https://pokeapi.co"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-muted-foreground hover:text-secondary transition-colors"
+              >
+                PokéAPI
+              </a>
               <a
                 href="mailto:pokemon@jasminides.com"
-                className="block text-yellow-400 hover:text-yellow-300 transition-colors"
+                className="block text-muted-foreground hover:text-secondary transition-colors"
               >
-                📧 Email
+                Contact
               </a>
             </div>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="border-t border-white/20 mt-8 pt-6">
+        <div className="border-t border-border mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-white/60 text-sm text-center md:text-left">
-              © {currentYear} PokéDex. Built with Next.js and React
+            <p className="text-muted-foreground text-sm text-center md:text-left">
+              © {currentYear} Pokédex. Built with Next.js and React
             </p>
 
-            <div className="flex items-center space-x-4 text-sm text-white/60">
-              <span>Data from</span>
+            <p className="text-muted-foreground text-sm">
+              Data powered by{' '}
               <a
                 href="https://pokeapi.co"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-yellow-400 hover:text-yellow-300 transition-colors"
+                className="text-secondary hover:underline"
               >
                 PokéAPI
               </a>
-            </div>
+            </p>
           </div>
         </div>
       </div>

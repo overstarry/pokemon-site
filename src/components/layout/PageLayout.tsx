@@ -12,8 +12,8 @@ export interface PageLayoutProps {
 }
 
 const backgroundVariants = {
-  default: 'min-h-screen bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 dark:from-blue-900 dark:via-purple-900 dark:to-pink-900',
-  gradient: 'min-h-screen bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-600 dark:from-indigo-900 dark:via-purple-900 dark:to-pink-900',
+  default: 'min-h-screen bg-background',
+  gradient: 'min-h-screen bg-gradient-to-br from-subtle to-background dark:from-background dark:to-subtle',
   solid: 'min-h-screen bg-background',
 };
 
@@ -37,7 +37,7 @@ export function PageLayout({
   );
 }
 
-// 页面容器组件
+// Page container component
 export interface PageContainerProps {
   children: React.ReactNode;
   className?: string;
@@ -59,7 +59,7 @@ export function PageContainer({
 }: PageContainerProps) {
   return (
     <div className={cn(
-      'container mx-auto px-4 py-8',
+      'mx-auto px-6 py-12',
       containerSizes[size],
       className
     )}>
@@ -68,7 +68,7 @@ export function PageContainer({
   );
 }
 
-// 页面标题组件
+// Page title component
 export interface PageTitleProps {
   title: string;
   subtitle?: string;
@@ -77,12 +77,12 @@ export interface PageTitleProps {
 
 export function PageTitle({ title, subtitle, className }: PageTitleProps) {
   return (
-    <div className={cn('text-center mb-12', className)}>
-      <h1 className="text-5xl font-bold text-white mb-4 drop-shadow-lg">
+    <div className={cn('text-center mb-16', className)}>
+      <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">
         {title}
       </h1>
       {subtitle && (
-        <p className="text-white/80 text-lg leading-relaxed">
+        <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
           {subtitle}
         </p>
       )}

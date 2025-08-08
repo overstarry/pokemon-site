@@ -22,21 +22,22 @@ export function Header({ className }: HeaderProps) {
 
   return (
     <header className={cn(
-      'bg-white/10 backdrop-blur-md border-b border-white/20',
+      'bg-white/95 backdrop-blur-sm border-b border-border shadow-sm',
+      'dark:bg-background/95 dark:border-border',
       className
     )}>
-      <div className="container mx-auto px-4 py-6">
+      <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link
             href="/"
-            className="text-4xl font-bold text-white drop-shadow-lg hover:text-yellow-300 transition-colors duration-300"
+            className="text-2xl font-semibold text-foreground hover:text-secondary transition-colors duration-200 tracking-tight"
           >
-            🌟 PokéDex
+            Pokédex
           </Link>
 
           {/* Navigation */}
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden md:flex space-x-8">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -44,10 +45,10 @@ export function Header({ className }: HeaderProps) {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    'font-medium transition-colors duration-300',
+                    'font-medium text-sm transition-colors duration-200 py-2 px-3 rounded-md relative',
                     isActive
-                      ? 'text-yellow-300'
-                      : 'text-white hover:text-yellow-300'
+                      ? 'text-secondary bg-accent'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-subtle'
                   )}
                 >
                   {item.label}
@@ -58,9 +59,9 @@ export function Header({ className }: HeaderProps) {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-white hover:text-yellow-300 transition-colors"
+            className="md:hidden text-muted-foreground hover:text-foreground transition-colors p-2 rounded-md hover:bg-subtle"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? "关闭菜单" : "打开菜单"}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
             <svg
               className="w-6 h-6"
@@ -80,8 +81,8 @@ export function Header({ className }: HeaderProps) {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <nav className="md:hidden mt-4 pt-4 border-t border-white/20">
-            <div className="flex flex-col space-y-2">
+          <nav className="md:hidden mt-4 pt-4 border-t border-border">
+            <div className="flex flex-col space-y-1">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;
                 return (
@@ -90,10 +91,10 @@ export function Header({ className }: HeaderProps) {
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={cn(
-                      'py-2 px-4 rounded-lg font-medium transition-colors duration-300',
+                      'py-3 px-4 rounded-md font-medium transition-colors duration-200',
                       isActive
-                        ? 'text-yellow-300 bg-white/10'
-                        : 'text-white hover:text-yellow-300 hover:bg-white/5'
+                        ? 'text-secondary bg-accent'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-subtle'
                     )}
                   >
                     {item.label}

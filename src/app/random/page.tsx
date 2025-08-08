@@ -106,11 +106,11 @@ export default function RandomPokemonPage() {
 
                 {/* Basic Info */}
                 <div className="grid grid-cols-2 gap-6 mb-8">
-                  <Card variant="glass" className="p-4">
+                  <Card variant="elevated" className="p-4">
                     <div className="text-white/60 mb-1">Height</div>
                     <div className="text-white font-bold text-xl">{pokemon.height ? (pokemon.height / 10) : 0} m</div>
                   </Card>
-                  <Card variant="glass" className="p-4">
+                  <Card variant="elevated" className="p-4">
                     <div className="text-white/60 mb-1">Weight</div>
                     <div className="text-white font-bold text-xl">{pokemon.weight ? (pokemon.weight / 10) : 0} kg</div>
                   </Card>
