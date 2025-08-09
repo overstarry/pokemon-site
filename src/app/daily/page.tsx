@@ -55,12 +55,12 @@ export default function DailyPokemonPage() {
             <Card className="overflow-hidden transform hover:scale-105 transition-all duration-300">
               <CardContent className="p-8 text-center">
                 {/* Pokemon Number */}
-                <div className="text-white/60 text-lg font-mono mb-2">
+                <div className="text-muted-foreground text-lg font-mono mb-2">
                   {formatPokemonId(pokemon.id)}
                 </div>
 
                 {/* Pokemon Name */}
-                <h2 className="text-4xl font-bold text-white mb-6 capitalize">
+                <h2 className="text-4xl font-bold text-card-foreground mb-6 capitalize">
                   {pokemon.name}
                 </h2>
 
@@ -91,13 +91,13 @@ export default function DailyPokemonPage() {
                 </div>
 
                 {/* Pokemon Stats */}
-                <div className="grid grid-cols-2 gap-4 mb-6 text-white/80">
+                <div className="grid grid-cols-2 gap-4 mb-6 text-card-foreground/80">
                   <div>
-                    <span className="text-white/60">Height:</span>
+                    <span className="text-muted-foreground">Height:</span>
                     <span className="ml-2 font-medium">{pokemon.height ? (pokemon.height / 10) : 'Unknown'} m</span>
                   </div>
                   <div>
-                    <span className="text-white/60">Weight:</span>
+                    <span className="text-muted-foreground">Weight:</span>
                     <span className="ml-2 font-medium">{pokemon.weight ? (pokemon.weight / 10) : 'Unknown'} kg</span>
                   </div>
                 </div>

@@ -57,12 +57,12 @@ export default function RandomPokemonPage() {
             <Card className="overflow-hidden transform hover:scale-105 transition-all duration-300">
               <CardContent className="p-8 text-center">
                 {/* Pokemon Number */}
-                <div className="text-white/60 text-lg font-mono mb-2">
+                <div className="text-muted-foreground text-lg font-mono mb-2">
                   {formatPokemonId(pokemon.id)}
                 </div>
 
                 {/* Pokemon Name */}
-                <h2 className="text-4xl font-bold text-white mb-6 capitalize">
+                <h2 className="text-4xl font-bold text-card-foreground mb-6 capitalize">
                   {pokemon.name}
                 </h2>
 
@@ -107,12 +107,12 @@ export default function RandomPokemonPage() {
                 {/* Basic Info */}
                 <div className="grid grid-cols-2 gap-6 mb-8">
                   <Card variant="elevated" className="p-4">
-                    <div className="text-white/60 mb-1">Height</div>
-                    <div className="text-white font-bold text-xl">{pokemon.height ? (pokemon.height / 10) : 0} m</div>
+                    <div className="text-muted-foreground mb-1">Height</div>
+                    <div className="text-card-foreground font-bold text-xl">{pokemon.height ? (pokemon.height / 10) : 0} m</div>
                   </Card>
                   <Card variant="elevated" className="p-4">
-                    <div className="text-white/60 mb-1">Weight</div>
-                    <div className="text-white font-bold text-xl">{pokemon.weight ? (pokemon.weight / 10) : 0} kg</div>
+                    <div className="text-muted-foreground mb-1">Weight</div>
+                    <div className="text-card-foreground font-bold text-xl">{pokemon.weight ? (pokemon.weight / 10) : 0} kg</div>
                   </Card>
                 </div>
 
@@ -137,8 +137,8 @@ export default function RandomPokemonPage() {
             {/* Fun Facts */}
             <Card className="mt-8 text-center p-6">
               <CardContent>
-                <h3 className="text-2xl font-bold text-white mb-4">🎯 Fun Facts</h3>
-                <p className="text-white/80 leading-relaxed">
+                <h3 className="text-2xl font-bold text-card-foreground mb-4">🎯 Fun Facts</h3>
+                <p className="text-card-foreground/80 leading-relaxed">
                   Did you know? Over 1000 different Pokémon have been discovered so far!
                   Each Pokémon has unique attributes, abilities, and characteristics.
                   Keep exploring to discover more amazing Pokémon companions!

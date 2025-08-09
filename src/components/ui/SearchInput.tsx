@@ -27,9 +27,9 @@ export function SearchInput({
           placeholder={placeholder}
           className={cn(
             'w-full px-4 py-3 pl-12 pr-12 rounded-full',
-            'bg-white/20 backdrop-blur-sm border border-white/30',
-            'text-white placeholder-white/60',
-            'focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent',
+            'bg-muted/10 backdrop-blur-sm border border-border',
+            'text-foreground placeholder-muted-foreground',
+            'focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent',
             'transition-all duration-300',
             className
           )}
@@ -39,9 +39,9 @@ export function SearchInput({
         {/* Search icon */}
         <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
           {loading ? (
-            <div className="w-4 h-4 border-2 border-white/60 border-t-white rounded-full animate-spin" />
+            <div className="w-4 h-4 border-2 border-muted-foreground border-t-foreground rounded-full animate-spin" />
           ) : (
-            <span className="text-white/60">🔍</span>
+            <span className="text-muted-foreground">🔍</span>
           )}
         </div>
 
@@ -50,7 +50,7 @@ export function SearchInput({
           <button
             type="button"
             onClick={onClear}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white/60 hover:text-white transition-colors"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
           >
             ✕
           </button>

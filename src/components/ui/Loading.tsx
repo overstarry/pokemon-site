@@ -11,7 +11,7 @@ export interface LoadingProps {
 // Spinner loader
 function SpinnerLoader({ size, className }: { size: string; className?: string }) {
   return (
-    <div className={cn('animate-spin rounded-full border-b-2 border-white', size, className)} />
+    <div className={cn('animate-spin rounded-full border-b-2 border-foreground', size, className)} />
   );
 }
 
@@ -22,7 +22,7 @@ function DotsLoader({ className }: { className?: string }) {
       {[0, 1, 2].map((i) => (
         <div
           key={i}
-          className="w-2 h-2 bg-white rounded-full animate-bounce"
+          className="w-2 h-2 bg-foreground rounded-full animate-bounce"
           style={{ animationDelay: `${i * 0.1}s` }}
         />
       ))}
@@ -33,7 +33,7 @@ function DotsLoader({ className }: { className?: string }) {
 // Pulse loader
 function PulseLoader({ size, className }: { size: string; className?: string }) {
   return (
-    <div className={cn('bg-white/20 rounded-full animate-pulse', size, className)} />
+    <div className={cn('bg-muted rounded-full animate-pulse', size, className)} />
   );
 }
 
@@ -41,9 +41,9 @@ function PulseLoader({ size, className }: { size: string; className?: string }) 
 function SkeletonLoader({ className }: { className?: string }) {
   return (
     <div className={cn('space-y-3', className)}>
-      <div className="w-full h-48 bg-white/20 rounded-lg animate-pulse" />
-      <div className="h-4 bg-white/20 rounded animate-pulse" />
-      <div className="h-3 bg-white/20 rounded w-2/3 animate-pulse" />
+      <div className="w-full h-48 bg-muted rounded-lg animate-pulse" />
+      <div className="h-4 bg-muted rounded animate-pulse" />
+      <div className="h-3 bg-muted rounded w-2/3 animate-pulse" />
     </div>
   );
 }
@@ -79,7 +79,7 @@ export function Loading({
     <div className="flex flex-col items-center justify-center space-y-4">
       {renderLoader()}
       {text && (
-        <p className="text-white text-center animate-pulse">
+        <p className="text-foreground text-center animate-pulse">
           {text}
         </p>
       )}
@@ -97,10 +97,10 @@ export function LoadingGrid({ count = 8, className }: LoadingGridProps) {
   return (
     <div className={cn('grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6', className)}>
       {Array.from({ length: count }, (_, i) => (
-        <div key={i} className="bg-white/20 backdrop-blur-sm rounded-xl p-6 animate-pulse">
-          <div className="w-full h-48 bg-white/20 rounded-lg mb-4" />
-          <div className="h-4 bg-white/20 rounded mb-2" />
-          <div className="h-3 bg-white/20 rounded w-2/3" />
+        <div key={i} className="bg-muted/50 backdrop-blur-sm rounded-xl p-6 animate-pulse">
+          <div className="w-full h-48 bg-muted rounded-lg mb-4" />
+          <div className="h-4 bg-muted rounded mb-2" />
+          <div className="h-3 bg-muted rounded w-2/3" />
         </div>
       ))}
     </div>

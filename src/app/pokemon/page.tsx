@@ -39,16 +39,16 @@ export default function PokemonPage() {
         {/* Controls */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
           <div className="flex items-center gap-2">
-            <span className="text-white/80">Show:</span>
+            <span className="text-foreground/80">Show:</span>
             <select
               value={limit}
               onChange={(e) => setLimit(Number(e.target.value))}
-              className="px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              className="px-4 py-2 rounded-full bg-muted/20 backdrop-blur-sm border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
             >
-              <option value={20} className="bg-gray-800">20</option>
-              <option value={50} className="bg-gray-800">50</option>
-              <option value={100} className="bg-gray-800">100</option>
-              <option value={151} className="bg-gray-800">151 (Gen I)</option>
+              <option value={20} className="bg-background text-foreground">20</option>
+              <option value={50} className="bg-background text-foreground">50</option>
+              <option value={100} className="bg-background text-foreground">100</option>
+              <option value={151} className="bg-background text-foreground">151 (Gen I)</option>
             </select>
           </div>
 
