@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Complete Pokédex - All Pokémon Database | PokéDex',
-  description: 'Browse the complete Pokédex with all Pokémon from every generation. Search, filter, and discover detailed information about your favorite Pokémon including stats, abilities, types, and evolution chains.',
+  title: 'Complete Pokemon Database - All Pokémon | PokeVerse',
+  description: 'Browse the complete Pokemon database with all Pokémon from every generation. Search, filter, and discover detailed information about your favorite Pokémon including stats, abilities, types, and evolution chains.',
   keywords: [
     'pokemon',
     'pokedex',
@@ -20,15 +20,15 @@ export const metadata: Metadata = {
     'game freak'
   ],
   openGraph: {
-    title: 'Complete Pokédex - All Pokémon Database',
-    description: 'Browse the complete Pokédex with all Pokémon from every generation. Search and discover detailed information about your favorite Pokémon.',
+    title: 'Complete Pokemon Database - All Pokémon',
+    description: 'Browse the complete Pokemon database with all Pokémon from every generation. Search and discover detailed information about your favorite Pokémon.',
     type: 'website',
-    siteName: 'PokéDex',
+    siteName: 'PokeVerse',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Complete Pokédex - All Pokémon Database',
-    description: 'Browse the complete Pokédex with all Pokémon from every generation.',
+    title: 'Complete Pokemon Database - All Pokémon',
+    description: 'Browse the complete Pokemon database with all Pokémon from every generation.',
   },
   alternates: {
     canonical: '/pokemon',

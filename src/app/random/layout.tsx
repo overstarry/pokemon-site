@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Random Pokémon Generator | PokéDex',
+  title: 'Random Pokémon Generator | PokeVerse',
   description: 'Discover random Pokémon with our Pokémon generator! Get surprised with different Pokémon species, their stats, abilities, and characteristics. Perfect for exploring new Pokémon.',
   keywords: [
     'random pokemon',
@@ -17,14 +17,14 @@ export const metadata: Metadata = {
     'game freak'
   ],
   openGraph: {
-    title: 'Random Pokémon Generator | PokéDex',
+    title: 'Random Pokémon Generator | PokeVerse',
     description: 'Discover random Pokémon with our Pokémon generator! Get surprised with different Pokémon species and their characteristics.',
     type: 'website',
-    siteName: 'PokéDex',
+    siteName: 'PokeVerse',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Random Pokémon Generator | PokéDex',
+    title: 'Random Pokémon Generator | PokeVerse',
     description: 'Discover random Pokémon with our Pokémon generator!',
   },
   alternates: {

@@ -5,10 +5,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "PokéDex - Pokémon Encyclopedia",
-    template: "%s | PokéDex"
+    default: "PokeVerse - Pokémon Encyclopedia",
+    template: "%s | PokeVerse"
   },
-  description: "Explore the amazing world of Pokémon and discover your favorite companions. Complete Pokédex with detailed information about all Pokémon species, stats, abilities, and evolution chains.",
+  description: "Explore the amazing world of Pokémon and discover your favorite companions. Complete Pokemon database with detailed information about all Pokémon species, stats, abilities, and evolution chains.",
   keywords: [
     "pokemon",
     "pokédex",
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     "nintendo",
     "game freak"
   ],
-  authors: [{ name: "PokéDex Team" }],
-  creator: "PokéDex",
-  publisher: "PokéDex",
+  authors: [{ name: "PokeVerse Team" }],
+  creator: "PokeVerse",
+  publisher: "PokeVerse",
   formatDetection: {
     email: false,
     address: false,
@@ -38,13 +38,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: '/',
-    siteName: 'PokéDex',
-    title: 'PokéDex - Pokémon Encyclopedia',
+    siteName: 'PokeVerse',
+    title: 'PokeVerse - Pokémon Encyclopedia',
     description: 'Explore the amazing world of Pokémon and discover your favorite companions',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PokéDex - Pokémon Encyclopedia',
+    title: 'PokeVerse - Pokémon Encyclopedia',
     description: 'Explore the amazing world of Pokémon and discover your favorite companions',
   },
   robots: {

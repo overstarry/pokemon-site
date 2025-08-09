@@ -11,7 +11,7 @@ export interface HeaderProps {
 
 const navItems = [
   { href: '/', label: 'Home' },
-  { href: '/pokemon', label: 'Pokédex' },
+  { href: '/pokemon', label: 'Database' },
   { href: '/daily', label: 'Daily' },
   { href: '/random', label: 'Random' },
 ];
@@ -33,7 +33,7 @@ export function Header({ className }: HeaderProps) {
             href="/"
             className="text-2xl font-semibold text-foreground hover:text-secondary transition-colors duration-200 tracking-tight"
           >
-            Pokédex
+            PokeVerse
           </Link>
 
           {/* Navigation */}

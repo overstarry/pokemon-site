@@ -34,7 +34,7 @@ export function PokemonStructuredData({ pokemon, species }: PokemonStructuredDat
     },
     "identifier": {
       "@type": "PropertyValue",
-      "name": "Pokédex Number",
+      "name": "Pokemon Number",
       "value": pokemon.id.toString()
     },
     "additionalProperty": [
@@ -78,7 +78,7 @@ export function PokemonStructuredData({ pokemon, species }: PokemonStructuredDat
       pokemon.name,
       pokemonName,
       "pokemon",
-      "pokédex",
+      "pokemon database",
       ...pokemon.types.map(t => `${t.type.name} pokemon`),
       ...(isPokemonDetail(pokemon) ? pokemon.abilities.map(a => a.ability.name) : []),
       `pokemon ${pokemon.id}`,
@@ -91,7 +91,7 @@ export function PokemonStructuredData({ pokemon, species }: PokemonStructuredDat
     },
     "isPartOf": {
       "@type": "WebSite",
-      "name": "PokéDex",
+      "name": "PokeVerse",
       "description": "Complete Pokémon Encyclopedia and Database"
     }
   };
@@ -114,7 +114,7 @@ export function WebsiteStructuredData({ title, description }: WebsiteStructuredD
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": title || "PokéDex",
+    "name": title || "PokeVerse",
     "alternateName": ["Pokemon Database", "Pokémon Encyclopedia"],
     "description": description || "Complete Pokémon database with detailed information about all Pokémon species, their stats, abilities, and characteristics.",
     "url": process.env.NEXT_PUBLIC_BASE_URL || "https://pokemon.jasminides.com",
@@ -134,11 +134,11 @@ export function WebsiteStructuredData({ title, description }: WebsiteStructuredD
     },
     "publisher": {
       "@type": "Organization",
-      "name": "PokéDex",
+      "name": "PokeVerse",
       "description": "Pokémon Information Database"
     },
     "inLanguage": "en-US",
-    "keywords": "pokemon, pokédex, pokemon database, pokemon encyclopedia, pokemon stats, pokemon abilities, nintendo, game freak"
+    "keywords": "pokemon, pokemon database, pokemon encyclopedia, pokemon stats, pokemon abilities, nintendo, game freak"
   };
 
   return (

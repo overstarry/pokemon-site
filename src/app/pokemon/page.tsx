@@ -21,7 +21,7 @@ export default function PokemonPage() {
 
       <PageContainer className="py-8">
         <PageTitle
-          title="Pokédex"
+          title="Pokemon Database"
           subtitle="Explore all Pokémon and discover your favorites"
         />
 

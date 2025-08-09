@@ -44,7 +44,7 @@ export default function PokemonDetailClient() {
           <div className="mt-4">
             <Button asChild size="md">
               <Link href="/pokemon">
-                Back to Pokédex
+                Back to Database
               </Link>
             </Button>
           </div>
@@ -68,7 +68,7 @@ export default function PokemonDetailClient() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
           <Button asChild variant="outline" size="md">
             <Link href="/pokemon">
-              ← Back to Pokédex
+              ← Back to Database
             </Link>
           </Button>
 
@@ -94,12 +94,12 @@ export default function PokemonDetailClient() {
             {/* Left Column - Image and Basic Info */}
             <div className="text-center">
               <div className="mb-4">
-                <span className="text-white/60 text-lg font-mono">
+                <span className="text-muted-foreground text-lg font-mono">
                   {formatPokemonId(pokemon.id)}
                 </span>
               </div>
 
-              <h1 className="text-4xl font-bold text-white mb-6 capitalize">
+              <h1 className="text-4xl font-bold text-foreground mb-6 capitalize">
                 {pokemon.name}
               </h1>
 
@@ -144,8 +144,8 @@ export default function PokemonDetailClient() {
               </div>
 
               {/* Description */}
-              <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm border border-white/20">
-                <p className="text-white/90 leading-relaxed">
+              <div className="bg-muted/50 rounded-xl p-4 backdrop-blur-sm border border-border">
+                <p className="text-foreground leading-relaxed">
                   {description}
                 </p>
               </div>
@@ -155,39 +155,39 @@ export default function PokemonDetailClient() {
             <div className="space-y-6">
               {/* Basic Stats */}
               <Card variant="elevated" className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-4">Basic Info</h3>
+                <h3 className="text-2xl font-bold text-card-foreground mb-4">Basic Info</h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <span className="text-white/60">Height</span>
-                    <p className="text-white font-bold text-lg">{pokemon.height / 10} m</p>
+                    <span className="text-muted-foreground">Height</span>
+                    <p className="text-card-foreground font-bold text-lg">{pokemon.height / 10} m</p>
                   </div>
                   <div>
-                    <span className="text-white/60">Weight</span>
-                    <p className="text-white font-bold text-lg">{pokemon.weight / 10} kg</p>
+                    <span className="text-muted-foreground">Weight</span>
+                    <p className="text-card-foreground font-bold text-lg">{pokemon.weight / 10} kg</p>
                   </div>
                   <div>
-                    <span className="text-white/60">Base Experience</span>
-                    <p className="text-white font-bold text-lg">{pokemon.base_experience}</p>
+                    <span className="text-muted-foreground">Base Experience</span>
+                    <p className="text-card-foreground font-bold text-lg">{pokemon.base_experience}</p>
                   </div>
                 </div>
               </Card>
 
               {/* Abilities */}
               <Card variant="elevated" className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-4">Abilities</h3>
+                <h3 className="text-2xl font-bold text-card-foreground mb-4">Abilities</h3>
                 <div className="space-y-2">
                   {pokemon.abilities.map((ability, index) => (
                     <div key={index} className="flex items-center gap-2">
                       <span className={cn(
-                        'py-1 px-3 rounded-full text-sm font-bold',
+                        'py-1 px-3 rounded-full text-sm font-bold text-white',
                         ability.is_hidden
-                          ? 'bg-purple-500 text-white'
-                          : 'bg-blue-500 text-white'
+                          ? 'bg-purple-500'
+                          : 'bg-blue-500'
                       )}>
                         {ability.ability.name}
                       </span>
                       {ability.is_hidden && (
-                        <span className="text-white/60 text-sm">(Hidden Ability)</span>
+                        <span className="text-muted-foreground text-sm">(Hidden Ability)</span>
                       )}
                     </div>
                   ))}
@@ -196,19 +196,19 @@ export default function PokemonDetailClient() {
 
               {/* Base Stats */}
               <Card variant="elevated" className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-4">Base Stats</h3>
+                <h3 className="text-2xl font-bold text-card-foreground mb-4">Base Stats</h3>
                 <div className="space-y-3">
                   {pokemon.stats.map((stat, index) => (
                     <div key={index}>
                       <div className="flex justify-between items-center mb-1">
-                        <span className="text-white/80 font-medium">
+                        <span className="text-card-foreground/80 font-medium">
                           {STAT_TRANSLATIONS[stat.stat.name as keyof typeof STAT_TRANSLATIONS] || stat.stat.name}
                         </span>
-                        <span className="text-white font-bold">
+                        <span className="text-card-foreground font-bold">
                           {stat.base_stat}
                         </span>
                       </div>
-                      <div className="w-full bg-white/20 rounded-full h-2">
+                      <div className="w-full bg-muted rounded-full h-2">
                         <div
                           className="bg-gradient-to-r from-yellow-400 to-red-500 h-2 rounded-full transition-all duration-300"
                           style={{ width: `${Math.min(stat.base_stat / 255 * 100, 100)}%` }}
@@ -216,10 +216,10 @@ export default function PokemonDetailClient() {
                       </div>
                     </div>
                   ))}
-                  <div className="pt-2 border-t border-white/20">
+                  <div className="pt-2 border-t border-border">
                     <div className="flex justify-between items-center">
-                      <span className="text-white font-bold">Total</span>
-                      <span className="text-white font-bold text-lg">
+                      <span className="text-card-foreground font-bold">Total</span>
+                      <span className="text-card-foreground font-bold text-lg">
                         {pokemon.stats.reduce((sum, stat) => sum + stat.base_stat, 0)}
                       </span>
                     </div>

@@ -20,7 +20,7 @@ export function Footer({ className }: FooterProps) {
           {/* Logo and description */}
           <div className="text-center md:text-left">
             <div className="text-xl font-semibold text-foreground mb-3">
-              Pokédex
+              PokeVerse
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Explore the amazing world of Pokémon and discover your favorite companions
@@ -41,7 +41,7 @@ export function Footer({ className }: FooterProps) {
                 href="/pokemon"
                 className="block text-muted-foreground hover:text-secondary transition-colors text-sm"
               >
-                Pokédex
+                Database
               </Link>
               <Link
                 href="/daily"
@@ -84,7 +84,7 @@ export function Footer({ className }: FooterProps) {
         <div className="border-t border-border mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-muted-foreground text-sm text-center md:text-left">
-              © {currentYear} Pokédex. Built with Next.js and React
+              © {currentYear} PokeVerse. Built with Next.js and React
             </p>
 
             <p className="text-muted-foreground text-sm">

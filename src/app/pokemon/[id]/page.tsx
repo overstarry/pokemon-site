@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     const pokemonTypes = pokemon.types.map(t => t.type.name).join('/');
 
     return {
-      title: `${pokemonName} - Pokémon #${formatPokemonId(pokemon.id)} | PokéDex`,
+      title: `${pokemonName} - Pokémon #${formatPokemonId(pokemon.id)} | PokeVerse`,
       description: `Discover ${pokemonName}, a ${pokemonTypes} type Pokémon. ${description.slice(0, 120)}${description.length > 120 ? '...' : ''}`,
       keywords: [
         pokemon.name,
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
           }
         ],
         type: 'article',
-        siteName: 'PokéDex',
+        siteName: 'PokeVerse',
       },
       twitter: {
         card: 'summary_large_image',
@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   } catch (error) {
     console.error('Error generating metadata for Pokemon:', id, error);
     return {
-      title: 'Pokémon Not Found | PokéDex',
+      title: 'Pokémon Not Found | PokeVerse',
       description: 'The requested Pokémon could not be found. Please check the Pokémon ID and try again.',
       robots: {
         index: false,

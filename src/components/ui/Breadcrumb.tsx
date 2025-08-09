@@ -45,7 +45,7 @@ export function Breadcrumb({ items, className }: BreadcrumbProps) {
 export function generatePokemonBreadcrumbs(pokemonName?: string, pokemonId?: number) {
   const breadcrumbs: BreadcrumbItem[] = [
     { label: 'Home', href: '/' },
-    { label: 'Pokédex', href: '/pokemon' },
+    { label: 'Database', href: '/pokemon' },
   ];
 
   if (pokemonName && pokemonId) {
