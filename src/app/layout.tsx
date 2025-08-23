@@ -72,6 +72,17 @@ export default function RootLayout({
         <link rel="preconnect" href="https://raw.githubusercontent.com" />
         <link rel="preconnect" href="https://assets.pokemon.com" />
         <link rel="dns-prefetch" href="https://pokeapi.co" />
+        
+        {/* Mobile and PWA optimization */}
+        <meta name="theme-color" content="#3b82f6" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="PokeVerse" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        
+        {/* Performance hints */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="antialiased">
         {/* Google Analytics */}

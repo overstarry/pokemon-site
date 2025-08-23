@@ -12,6 +12,7 @@ export interface HeaderProps {
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '/pokemon', label: 'Database' },
+  { href: '/types', label: 'Types' },
   { href: '/daily', label: 'Daily' },
   { href: '/random', label: 'Random' },
 ];

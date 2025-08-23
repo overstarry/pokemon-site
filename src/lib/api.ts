@@ -239,3 +239,22 @@ export function getPokemonDescription(species: PokemonSpeciesDetail): string {
 
   return englishEntry?.flavor_text.replace(/\f/g, ' ') || 'No description available';
 }
+
+// Fetch Pokemon by type
+export async function fetchPokemonByType(type: string): Promise<Pokemon[]> {
+  try {
+    const typeData = await apiCall<any>(`${API_CONFIG.BASE_URL}/type/${type}`);
+    const pokemonPromises = typeData.pokemon
+      .slice(0, 50) // Limit to first 50 for performance
+      .map((entry: any) => {
+        const pokemonId = entry.pokemon.url.split('/').filter(Boolean).pop();
+        return fetchPokemonBasic(pokemonId);
+      });
+    
+    const pokemonList = await Promise.all(pokemonPromises);
+    return pokemonList.sort((a, b) => a.id - b.id);
+  } catch (error) {
+    console.error(`Error fetching ${type} type Pokemon:`, error);
+    return [];
+  }
+}
