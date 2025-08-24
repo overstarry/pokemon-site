@@ -96,6 +96,15 @@ export interface PokemonListResponse {
   }>;
 }
 
+export interface PokemonTypeResponse {
+  pokemon: Array<{
+    pokemon: {
+      name: string;
+      url: string;
+    };
+  }>;
+}
+
 // Component Props interfaces
 export interface PokemonGridProps {
   limit?: number;

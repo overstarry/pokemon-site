@@ -6,7 +6,7 @@ import { PokemonCard } from '@/components/pokemon/PokemonCard';
 import { Card, CardContent, Breadcrumb } from '@/components/ui';
 import { TYPE_COLORS, TYPE_TRANSLATIONS } from '@/constants/pokemon';
 import { fetchPokemonByType } from '@/lib/api';
-import { PokemonStructuredData } from '@/components/seo/StructuredData';
+import type { Pokemon } from '@/types/pokemon';
 
 // Valid Pokemon types
 const VALID_TYPES = [
@@ -76,7 +76,7 @@ export default async function PokemonTypePage({ params }: { params: Promise<{ ty
   const typeName = TYPE_TRANSLATIONS[type as PokemonType] || type;
   const capitalizedType = typeName.charAt(0).toUpperCase() + typeName.slice(1);
   
-  let pokemonList;
+  let pokemonList: Pokemon[];
   try {
     pokemonList = await fetchPokemonByType(type);
   } catch (error) {
@@ -85,9 +85,9 @@ export default async function PokemonTypePage({ params }: { params: Promise<{ ty
   }
 
   const breadcrumbItems = [
-    { name: 'Home', url: '/' },
-    { name: 'Types', url: '/types' },
-    { name: capitalizedType, url: `/types/${type}` },
+    { label: 'Home', href: '/' },
+    { label: 'Types', href: '/types' },
+    { label: capitalizedType, href: `/types/${type}` },
   ];
 
   return (

@@ -3,6 +3,7 @@ import type {
   PokemonDetail,
   PokemonSpeciesDetail,
   PokemonListResponse,
+  PokemonTypeResponse,
   PokemonError,
   PokemonApiResponse
 } from '@/types/pokemon';
@@ -243,11 +244,14 @@ export function getPokemonDescription(species: PokemonSpeciesDetail): string {
 // Fetch Pokemon by type
 export async function fetchPokemonByType(type: string): Promise<Pokemon[]> {
   try {
-    const typeData = await apiCall<any>(`${API_CONFIG.BASE_URL}/type/${type}`);
+    const typeData = await apiCall<PokemonTypeResponse>(`${API_CONFIG.BASE_URL}/type/${type}`);
     const pokemonPromises = typeData.pokemon
       .slice(0, 50) // Limit to first 50 for performance
-      .map((entry: any) => {
+      .map((entry) => {
         const pokemonId = entry.pokemon.url.split('/').filter(Boolean).pop();
+        if (!pokemonId) {
+          throw new Error('Invalid Pokemon URL format');
+        }
         return fetchPokemonBasic(pokemonId);
       });
     
