@@ -3,7 +3,7 @@ import type {
   PokemonDetail,
   PokemonSpeciesDetail,
   PokemonListResponse,
-  PokemonTypeResponse,
+  TypeDetailResponse,
   PokemonError,
   PokemonApiResponse
 } from '@/types/pokemon';
@@ -241,22 +241,67 @@ export function getPokemonDescription(species: PokemonSpeciesDetail): string {
   return englishEntry?.flavor_text.replace(/\f/g, ' ') || 'No description available';
 }
 
-// Fetch Pokemon by type
-export async function fetchPokemonByType(type: string): Promise<Pokemon[]> {
+// Fetch complete type details including damage relations
+export async function fetchTypeDetail(type: string): Promise<TypeDetailResponse | null> {
   try {
-    const typeData = await apiCall<PokemonTypeResponse>(`${API_CONFIG.BASE_URL}/type/${type}`);
-    const pokemonPromises = typeData.pokemon
-      .slice(0, 50) // Limit to first 50 for performance
-      .map((entry) => {
+    const typeData = await apiCall<TypeDetailResponse>(`${API_CONFIG.BASE_URL}/type/${type}`);
+    return typeData;
+  } catch (error) {
+    console.error(`Error fetching ${type} type details:`, error);
+    return null;
+  }
+}
+
+// Fetch Pokemon by type with support for primary/secondary typing
+export async function fetchPokemonByTypeWithSlots(type: string): Promise<{
+  primary: Pokemon[];
+  secondary: Pokemon[];
+}> {
+  try {
+    const typeData = await apiCall<TypeDetailResponse>(`${API_CONFIG.BASE_URL}/type/${type}`);
+    
+    // Separate Pokemon by slot (1 = primary, 2 = secondary)
+    const primaryEntries = typeData.pokemon.filter(entry => entry.slot === 1);
+    const secondaryEntries = typeData.pokemon.filter(entry => entry.slot === 2);
+    
+    // Fetch Pokemon data for each group
+    const [primaryPromises, secondaryPromises] = await Promise.all([
+      primaryEntries.map((entry) => {
         const pokemonId = entry.pokemon.url.split('/').filter(Boolean).pop();
         if (!pokemonId) {
           throw new Error('Invalid Pokemon URL format');
         }
         return fetchPokemonBasic(pokemonId);
-      });
+      }),
+      secondaryEntries.map((entry) => {
+        const pokemonId = entry.pokemon.url.split('/').filter(Boolean).pop();
+        if (!pokemonId) {
+          throw new Error('Invalid Pokemon URL format');
+        }
+        return fetchPokemonBasic(pokemonId);
+      })
+    ]);
     
-    const pokemonList = await Promise.all(pokemonPromises);
-    return pokemonList.sort((a, b) => a.id - b.id);
+    const [primaryList, secondaryList] = await Promise.all([
+      Promise.all(primaryPromises),
+      Promise.all(secondaryPromises)
+    ]);
+    
+    return {
+      primary: primaryList.sort((a, b) => a.id - b.id),
+      secondary: secondaryList.sort((a, b) => a.id - b.id)
+    };
+  } catch (error) {
+    console.error(`Error fetching ${type} type Pokemon:`, error);
+    return { primary: [], secondary: [] };
+  }
+}
+
+// Legacy function - fetch all Pokemon of a type (backwards compatibility)
+export async function fetchPokemonByType(type: string): Promise<Pokemon[]> {
+  try {
+    const { primary, secondary } = await fetchPokemonByTypeWithSlots(type);
+    return [...primary, ...secondary].sort((a, b) => a.id - b.id);
   } catch (error) {
     console.error(`Error fetching ${type} type Pokemon:`, error);
     return [];

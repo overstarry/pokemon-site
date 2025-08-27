@@ -96,6 +96,61 @@ export interface PokemonListResponse {
   }>;
 }
 
+// Basic type info used in damage relations
+export interface TypeInfo {
+  name: string;
+  url: string;
+}
+
+// Type effectiveness relationships
+export interface TypeDamageRelations {
+  double_damage_to: TypeInfo[];
+  half_damage_to: TypeInfo[];
+  no_damage_to: TypeInfo[];
+  double_damage_from: TypeInfo[];
+  half_damage_from: TypeInfo[];
+  no_damage_from: TypeInfo[];
+}
+
+// Generation information
+export interface TypeGenerationInfo {
+  id: number;
+  name: string;
+}
+
+// Multi-language name support
+export interface TypeName {
+  name: string;
+  language: {
+    name: string;
+    url: string;
+  };
+}
+
+// Complete type detail response from PokeAPI
+export interface TypeDetailResponse {
+  id: number;
+  name: string;
+  damage_relations: TypeDamageRelations;
+  generation: TypeGenerationInfo;
+  move_damage_class: {
+    name: string;
+  };
+  names: TypeName[];
+  pokemon: Array<{
+    pokemon: {
+      name: string;
+      url: string;
+    };
+    slot: number;
+  }>;
+  moves: Array<{
+    name: string;
+    url: string;
+  }>;
+}
+
+// Legacy interface for backwards compatibility
 export interface PokemonTypeResponse {
   pokemon: Array<{
     pokemon: {
