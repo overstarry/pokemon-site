@@ -140,7 +140,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 🙏 Acknowledgments
 
 - **Data**: Powered by [PokéAPI](https://pokeapi.co/) - the RESTful Pokémon API
-- **Images**: Official Pokémon artwork from various sources
+- **Images**: Official Pokémon artwork sourced via [PokéAPI](https://pokeapi.co/), which provides images from [Pokémon Database](https://pokemondb.net/) and [Bulbapedia](https://bulbapedia.bulbagarden.net/). All Pokémon images are © 1995–2024 Nintendo, Creatures Inc., GAME FREAK Inc. and are used here under fair use for non-commercial, educational purposes.
 - **Framework**: Built with [Next.js](https://nextjs.org/) and [React](https://reactjs.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/) for the beautiful design system
 
