@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run build` - Build the production version
 - `npm start` - Start production server
 - `npm run lint` - Run ESLint for code quality checks
-- Run tests: `npm test` (check if test scripts exist in package.json or look for test files)
+- Run tests: Check for test scripts in package.json or test files (currently has unit tests in `src/lib/__tests__/`)
 
 ## Project Architecture
 
@@ -22,14 +22,18 @@ This is a Next.js 15 Pokémon encyclopedia application using the App Router patt
 
 **Data Flow**: 
 - API layer (`src/lib/api.ts`) handles all external data fetching with comprehensive error handling
-- Custom hooks (`src/hooks/`) manage state and data fetching logic
+- Custom hooks (`src/hooks/`) manage state and data fetching logic:
+  - `usePokemon` - Pokemon list data fetching
+  - `usePokemonDetail` - Individual Pokemon details with species info
+  - `useDailyPokemon` - Deterministic daily Pokemon generation
+  - `useRandomPokemon` - Random Pokemon discovery
 - Components consume data through these hooks for separation of concerns
 
 **Theme System**: Uses a custom ThemeProvider for dark/light mode switching with system preference detection.
 
 ### Key Features
 
-**Daily Pokémon**: Unique daily Pokémon per user using deterministic generation based on user ID and date (`src/lib/daily.ts`). Creates consistent daily experiences across sessions.
+**Daily Pokémon**: Unique daily Pokémon per user using deterministic generation based on user ID and date (`src/lib/daily.ts`). Creates consistent daily experiences across sessions using localStorage with browser fingerprint fallback.
 
 **SEO Optimization**: Comprehensive metadata, structured data, robots.txt, and sitemap generation for search engine optimization.
 
@@ -45,18 +49,19 @@ This is a Next.js 15 Pokémon encyclopedia application using the App Router patt
 - `src/lib/` - Utility functions, API client, and business logic
 - `src/types/` - TypeScript type definitions
 - `src/constants/` - Application constants, colors, and configuration
+- `src/styles/` - Design tokens and global styles
 
 ### Important Implementation Details
 
 **Error Handling**: Custom `PokemonApiError` class with specific error messages and status codes. Components display user-friendly error states.
 
-**Image Loading**: Multi-tier fallback system for Pokémon images with CDN backup and proper loading states.
+**Image Loading**: Multi-tier fallback system for Pokémon images with CDN backup and proper loading states. Supports both regular and shiny variants through `getPokemonImageUrl()` utility.
 
-**Search**: Direct name/ID search with input sanitization and validation.
+**Search**: Direct name/ID search with input sanitization and validation. Handles special characters and converts spaces to hyphens for API compatibility.
 
 **State Management**: Uses React hooks and context for theme state. No external state management library.
 
-**Styling**: Tailwind CSS with design tokens in `src/styles/design-tokens.ts` for consistent theming.
+**Styling**: Tailwind CSS with design tokens in `src/styles/design-tokens.ts` for consistent theming. Type colors, gradients, and stat color mappings are defined in `src/constants/pokemon.ts`.
 
 **Performance**: Uses Next.js Image optimization, lazy loading, and Turbopack for development performance.
 
