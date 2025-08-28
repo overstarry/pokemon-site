@@ -1,0 +1,125 @@
+# PokeVerse - Pokémon Encyclopedia
+
+This is a comprehensive Pokémon encyclopedia web application built with modern web technologies.
+
+## Project Overview
+
+A Next.js 15 application that provides detailed information about Pokémon species, types, abilities, and evolution chains using the PokéAPI as the data source. Features include daily Pokémon discovery, random exploration, type system analysis, and comprehensive search functionality.
+
+## Technology Stack
+
+- **Framework**: Next.js 15 with App Router pattern
+- **Language**: TypeScript with strict type checking
+- **Styling**: Tailwind CSS with custom design system
+- **Data Source**: PokéAPI (https://pokeapi.co/api/v2)
+- **Image Optimization**: Next.js Image component with CDN fallbacks
+- **State Management**: React hooks and context (no external state library)
+- **Build Tool**: Turbopack for development performance
+
+## Architecture
+
+### Core Structure
+- **App Router**: Uses Next.js 15 App Router for file-based routing
+- **API Layer**: Centralized API handling in `src/lib/api.ts` with comprehensive error handling
+- **Type System**: Complete TypeScript definitions in `src/types/pokemon.ts`
+- **Component Architecture**: Organized by domain (layout, pokemon, seo, ui)
+- **Custom Hooks**: Data fetching and state management logic in `src/hooks/`
+
+### Key Features
+- **Daily Pokémon**: Deterministic daily Pokémon generation per user
+- **Search System**: Direct name/ID search with input validation
+- **Theme System**: Dark/light mode with system preference detection
+- **SEO Optimization**: Metadata, structured data, robots.txt, sitemap
+- **Error Handling**: Custom PokemonApiError class with user-friendly messages
+- **Image Fallbacks**: Multi-tier fallback system for Pokémon images
+
+## Directory Structure
+
+```
+src/
+├── app/                    # Next.js App Router pages and layouts
+│   ├── daily/             # Daily Pokémon feature
+│   ├── pokemon/           # Pokémon database and detail pages
+│   ├── random/            # Random Pokémon discovery
+│   └── types/             # Pokémon type system explorer
+├── components/            # Reusable UI components
+│   ├── layout/           # Layout components (header, footer, navigation)
+│   ├── pokemon/          # Pokémon-specific components
+│   ├── seo/              # SEO and structured data components
+│   └── ui/               # General UI components
+├── hooks/                # Custom React hooks for data fetching
+├── lib/                  # Utility functions and API client
+├── types/                # TypeScript type definitions
+├── constants/            # Application constants and configuration
+└── styles/               # Global styles and design tokens
+```
+
+## Key Files
+
+### Core Application
+- `src/app/layout.tsx` - Root layout with theme provider and metadata
+- `src/app/page.tsx` - Homepage with navigation cards
+- `src/lib/api.ts` - PokéAPI client with error handling and caching
+- `src/types/pokemon.ts` - Complete TypeScript definitions for Pokémon data
+
+### Features
+- `src/app/daily/page.tsx` - Daily Pokémon discovery feature
+- `src/app/pokemon/page.tsx` - Pokémon database listing
+- `src/app/pokemon/[id]/page.tsx` - Individual Pokémon detail pages
+- `src/app/random/page.tsx` - Random Pokémon exploration
+- `src/app/types/page.tsx` - Pokémon type system explorer
+
+### UI Components
+- `src/components/pokemon/` - Pokémon-specific components (cards, lists, details)
+- `src/components/ui/` - Reusable UI components (buttons, cards, loading states)
+- `src/components/layout/` - Layout components (header, footer, navigation)
+
+### Utilities
+- `src/lib/daily.ts` - Daily Pokémon generation logic
+- `src/lib/utils.ts` - General utility functions
+- `src/constants/` - Type colors, configuration, and constants
+- `src/styles/design-tokens.ts` - Design system tokens and theme definitions
+
+## Development
+
+### Commands
+- `npm run dev` - Start development server with Turbopack
+- `npm run build` - Build production version
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint for code quality
+
+### Code Patterns
+- **Error Handling**: Custom error classes with specific error messages
+- **Type Safety**: Strict TypeScript with comprehensive type definitions
+- **Component Props**: Properly typed component interfaces
+- **API Integration**: Centralized with fallback mechanisms
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Performance**: Image optimization, lazy loading, and efficient data fetching
+
+## Data Flow
+
+1. **API Layer** (`src/lib/api.ts`) handles all external data fetching
+2. **Custom Hooks** (`src/hooks/`) manage state and data fetching logic
+3. **Components** consume data through hooks for separation of concerns
+4. **Error Boundaries** handle API failures gracefully
+5. **Loading States** provide user feedback during data fetching
+
+## Special Features
+
+### Daily Pokémon System
+- Uses deterministic generation based on user ID and date
+- Implemented in `src/lib/daily.ts`
+- Creates consistent daily experiences across sessions
+
+### SEO Implementation
+- Dynamic metadata generation for all pages
+- Structured data for rich search results
+- Automatic sitemap generation
+- Optimized robots.txt configuration
+
+### Image Optimization
+- Next.js Image component with multiple fallback sources
+- CDN configuration for optimal loading
+- Proper loading states and error handling
+
+This codebase follows modern React/Next.js patterns with comprehensive TypeScript typing, error handling, and performance optimization throughout.
