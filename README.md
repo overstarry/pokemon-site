@@ -1,7 +1,5 @@
 # PokeVerse - Pokémon Encyclopedia
 
-![PokeVerse Homepage](https://github.com/user-attachments/assets/cb78594a-261e-44b5-b1c4-210bbae28ee0)
-
 A comprehensive and modern Pokémon encyclopedia built with Next.js 15, featuring detailed information about all Pokémon species, types, abilities, and evolution chains. Explore the amazing world of Pokémon with an intuitive and responsive interface.
 
 ## ✨ Features
