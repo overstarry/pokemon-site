@@ -21,8 +21,8 @@ export function PokemonCard({ pokemon, showShiny = false, className }: PokemonCa
       href={`/pokemon/${pokemon.id}`}
       className={cn('group block', className)}
     >
-      <Card className="bg-card border-border hover:border-secondary/50 transition-all duration-200 overflow-hidden">
-        <CardContent className="p-6">
+      <Card className="bg-card border-border hover:border-secondary/50 transition-all duration-200 overflow-hidden h-80 min-h-80">
+        <CardContent className="p-6 h-full flex flex-col relative">
           {/* Pokemon Image */}
           <div className="relative w-full h-40 mb-4 rounded-lg overflow-hidden bg-subtle">
             <PokemonImage
@@ -36,17 +36,17 @@ export function PokemonCard({ pokemon, showShiny = false, className }: PokemonCa
           </div>
 
           {/* Pokemon ID */}
-          <div className="text-muted-foreground text-xs font-mono mb-2 text-center">
+          <div className="text-muted-foreground text-xs font-mono mb-3 text-center">
             {formatPokemonId(pokemon.id)}
           </div>
 
-          {/* Pokemon Name */}
-          <h3 className="text-foreground font-semibold text-lg mb-4 capitalize text-center tracking-tight">
-            {pokemon.name}
+          {/* Pokemon Name - 给长名字更多空间 */}
+          <h3 className="text-foreground font-semibold text-base mb-4 capitalize text-center tracking-tight min-h-[3rem] flex items-center justify-center px-2 leading-tight">
+            {pokemon.name.replace(/-/g, ' ')}
           </h3>
 
-          {/* Type tags */}
-          <div className="flex flex-wrap gap-1.5 justify-center">
+          {/* Type tags - Push to bottom */}
+          <div className="flex flex-wrap gap-1.5 justify-center mt-auto">
             {pokemon.types.map((type, index) => (
               <span
                 key={index}

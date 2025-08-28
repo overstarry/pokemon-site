@@ -138,14 +138,16 @@ export function StaggeredContainer({
   return (
     <div className={className}>
       {childrenArray.map((child, index) => (
-        <AnimatedContainer
+        <div
           key={index}
-          animation={animation}
-          delay={index * staggerDelay}
-          trigger="scroll"
+          className="animate-fade-in"
+          style={{
+            animationDelay: `${index * staggerDelay}ms`,
+            animationFillMode: 'both'
+          }}
         >
           {child}
-        </AnimatedContainer>
+        </div>
       ))}
     </div>
   );

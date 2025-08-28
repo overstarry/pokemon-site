@@ -1,14 +1,23 @@
 'use client';
 
 import React from 'react';
-import { LoadingGrid, ErrorMessage } from '@/components/ui';
+import { LoadingGrid, ErrorMessage, Pagination } from '@/components/ui';
 import { StaggeredContainer } from '@/components/ui/AnimatedContainer';
 import { PokemonCard } from '@/components/pokemon/PokemonCard';
 import { usePokemon } from '@/hooks';
 import type { PokemonGridProps } from '@/types/pokemon';
 
 export default function PokemonGrid({ limit = 20, searchTerm = '' }: PokemonGridProps) {
-  const { pokemon, loading, error, refetch } = usePokemon(limit, searchTerm);
+  const { 
+    pokemon, 
+    loading, 
+    error, 
+    total, 
+    currentPage, 
+    totalPages, 
+    refetch, 
+    goToPage 
+  } = usePokemon(limit, searchTerm);
 
   if (loading) {
     return <LoadingGrid count={limit} />;
@@ -38,18 +47,41 @@ export default function PokemonGrid({ limit = 20, searchTerm = '' }: PokemonGrid
     );
   }
 
+  const showingStart = searchTerm.trim() ? 1 : (currentPage - 1) * limit + 1;
+  const showingEnd = searchTerm.trim() ? pokemon.length : Math.min(currentPage * limit, total);
+
   return (
-    <StaggeredContainer
-      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-      staggerDelay={50}
-      animation="scale-in"
-    >
-      {pokemon.map((poke) => (
-        <PokemonCard
-          key={poke.id}
-          pokemon={poke}
+    <div className="space-y-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {pokemon.map((poke, index) => (
+          <div 
+            key={poke.id} 
+            className="w-full flex animate-fade-in"
+            style={{
+              animationDelay: `${index * 50}ms`,
+              animationFillMode: 'both'
+            }}
+          >
+            <PokemonCard
+              pokemon={poke}
+              className="w-full"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Show pagination only if not searching */}
+      {!searchTerm.trim() && totalPages > 1 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={goToPage}
+          showingStart={showingStart}
+          showingEnd={showingEnd}
+          totalItems={total}
+          className="mt-12"
         />
-      ))}
-    </StaggeredContainer>
+      )}
+    </div>
   );
 }

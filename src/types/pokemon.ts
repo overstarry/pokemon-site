@@ -182,7 +182,11 @@ export interface UsePokemonReturn {
   pokemon: Pokemon[];
   loading: boolean;
   error: PokemonError | null;
+  total: number;
+  currentPage: number;
+  totalPages: number;
   refetch: () => void;
+  goToPage: (page: number) => void;
 }
 
 export interface UsePokemonDetailReturn {

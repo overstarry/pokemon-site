@@ -132,7 +132,8 @@ body {
 
 /* Animation classes */
 .animate-fade-in {
-  animation: fadeIn 0.5s ease-out;
+  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
 }
 
 .animate-slide-up {

@@ -14,7 +14,7 @@ export default function PokemonPage() {
     limit,
     setLimit,
     isSearching
-  } = usePokemonSearch(50);
+  } = usePokemonSearch(18);
 
   return (
     <PageLayout>
@@ -45,10 +45,11 @@ export default function PokemonPage() {
               onChange={(e) => setLimit(Number(e.target.value))}
               className="px-4 py-2 rounded-full bg-muted/20 backdrop-blur-sm border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
             >
-              <option value={20} className="bg-background text-foreground">20</option>
-              <option value={50} className="bg-background text-foreground">50</option>
-              <option value={100} className="bg-background text-foreground">100</option>
-              <option value={151} className="bg-background text-foreground">151 (Gen I)</option>
+              <option value={9} className="bg-background text-foreground">9</option>
+              <option value={18} className="bg-background text-foreground">18</option>
+              <option value={27} className="bg-background text-foreground">27</option>
+              <option value={36} className="bg-background text-foreground">36</option>
+              <option value={45} className="bg-background text-foreground">45</option>
             </select>
           </div>
 

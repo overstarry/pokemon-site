@@ -21,23 +21,28 @@ export function usePokemon(
   const [pokemon, setPokemon] = useState<Pokemon[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<PokemonError | null>(null);
+  const [total, setTotal] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const fetchData = useCallback(async () => {
+  const fetchData = useCallback(async (page: number = 1) => {
     try {
       setLoading(true);
       setError(null);
 
-      let data: Pokemon[];
-
       if (searchTerm.trim()) {
         // If there's a search term, perform search
-        data = await searchPokemon(searchTerm);
+        const data = await searchPokemon(searchTerm);
+        setPokemon(data);
+        setTotal(data.length);
+        setCurrentPage(1); // Reset to first page for search
       } else {
-        // Otherwise get normal list
-        data = await fetchPokemonListWithDetails(limit);
+        // Otherwise get normal list with pagination
+        const offset = (page - 1) * limit;
+        const result = await fetchPokemonListWithDetails(limit, offset);
+        setPokemon(result.pokemon);
+        setTotal(result.total);
+        setCurrentPage(page);
       }
-
-      setPokemon(data);
     } catch (err) {
       const error = err instanceof PokemonApiError
         ? err
@@ -50,18 +55,28 @@ export function usePokemon(
   }, [limit, searchTerm]);
 
   const refetch = useCallback(() => {
-    fetchData();
+    fetchData(currentPage);
+  }, [fetchData, currentPage]);
+
+  const goToPage = useCallback((page: number) => {
+    fetchData(page);
   }, [fetchData]);
 
   useEffect(() => {
-    fetchData();
+    fetchData(1); // Always start from page 1 when dependencies change
   }, [fetchData]);
+
+  const totalPages = Math.ceil(total / limit);
 
   return {
     pokemon,
     loading,
     error,
+    total,
+    currentPage,
+    totalPages,
     refetch,
+    goToPage,
   };
 }
 

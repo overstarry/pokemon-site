@@ -103,7 +103,7 @@ export async function fetchPokemonSpecies(url: string): Promise<PokemonSpeciesDe
 export async function fetchPokemonListWithDetails(
   limit: number = API_CONFIG.LIMITS.DEFAULT_LIMIT,
   offset: number = 0
-): Promise<Pokemon[]> {
+): Promise<{ pokemon: Pokemon[]; total: number }> {
   try {
     // First get Pokemon list
     const listResponse = await fetchPokemonList(limit, offset);
@@ -135,7 +135,12 @@ export async function fetchPokemonListWithDetails(
     );
 
     // Filter out failed Pokemon (id is 0)
-    return pokemonDetails.filter(pokemon => pokemon.id > 0);
+    const filteredPokemon = pokemonDetails.filter(pokemon => pokemon.id > 0);
+    
+    return {
+      pokemon: filteredPokemon,
+      total: listResponse.count
+    };
   } catch (error) {
     console.error('Failed to fetch Pokemon list with details:', error);
     throw new PokemonApiError(ERROR_MESSAGES.FETCH_POKEMON_FAILED);

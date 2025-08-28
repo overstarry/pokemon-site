@@ -22,6 +22,8 @@ export { Breadcrumb, generatePokemonBreadcrumbs, generateRandomBreadcrumbs } fro
 
 export { ThemeToggle } from './ThemeToggle';
 
+export { Pagination } from './Pagination';
+
 export {
     AnimatedContainer,
     FadeIn,

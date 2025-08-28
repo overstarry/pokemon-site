@@ -93,15 +93,15 @@ export const API_CONFIG = {
     TYPE: '/type',
   },
   LIMITS: {
-    DEFAULT_LIMIT: 20,
-    MAX_LIMIT: 151,
-    RANDOM_RANGE: 1010, // Current total Pokemon count
+    DEFAULT_LIMIT: 24,
+    MAX_LIMIT: 1010,
+    RANDOM_RANGE: 1010, // Current total Pokemon count for random generation
   },
 } as const;
 
 // Default configuration
 export const DEFAULT_CONFIG = {
-  POKEMON_GRID_LIMIT: 20,
+  POKEMON_GRID_LIMIT: 18,
   SEARCH_DEBOUNCE_MS: 300,
   IMAGE_SIZES: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw',
   DETAIL_IMAGE_SIZE: '320px',
