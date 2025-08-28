@@ -11,7 +11,7 @@ A Next.js 15 application that provides detailed information about Pokémon speci
 - **Framework**: Next.js 15 with App Router pattern
 - **Language**: TypeScript with strict type checking
 - **Styling**: Tailwind CSS with custom design system
-- **Data Source**: PokéAPI (https://pokeapi.co/api/v2)
+- **Data Source**: PokéAPI (https://pokeapi.co/api/v2/)
 - **Image Optimization**: Next.js Image component with CDN fallbacks
 - **State Management**: React hooks and context (no external state library)
 - **Build Tool**: Turbopack for development performance
