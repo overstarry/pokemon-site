@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { LoadingGrid, ErrorMessage, Pagination } from '@/components/ui';
-import { StaggeredContainer } from '@/components/ui/AnimatedContainer';
 import { PokemonCard } from '@/components/pokemon/PokemonCard';
 import { usePokemon } from '@/hooks';
 import type { PokemonGridProps } from '@/types/pokemon';

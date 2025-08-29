@@ -130,6 +130,7 @@ export interface StaggeredContainerProps {
 export function StaggeredContainer({
   children,
   staggerDelay = 100,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   animation = 'slide-up',
   className,
 }: StaggeredContainerProps) {
