@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next'
 import { headers } from 'next/headers'
 
+export const runtime = 'edge'
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Get the current domain from request headers
   const headersList = await headers()
