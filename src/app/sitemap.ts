@@ -1,8 +1,16 @@
 import { MetadataRoute } from 'next'
+import { headers } from 'next/headers'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Use environment variable for base URL, fallback to production URL
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://pokemon.jasminides.com'
+  // Get the current domain from request headers
+  const headersList = headers()
+  const host = headersList.get('host')
+  const protocol = headersList.get('x-forwarded-proto') || 'https'
+  
+  // Use dynamic domain or fallback to environment variable or default
+  const baseUrl = host 
+    ? `${protocol}://${host}` 
+    : process.env.NEXT_PUBLIC_BASE_URL || 'https://pokemon.jasminides.com'
 
   // Static pages
   const staticPages = [
