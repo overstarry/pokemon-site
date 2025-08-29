@@ -1,9 +1,9 @@
 import { MetadataRoute } from 'next'
 import { headers } from 'next/headers'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Get the current domain from request headers
-  const headersList = headers()
+  const headersList = await headers()
   const host = headersList.get('host')
   const protocol = headersList.get('x-forwarded-proto') || 'https'
   
