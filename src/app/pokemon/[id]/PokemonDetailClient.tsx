@@ -4,12 +4,13 @@ import { useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { PageLayout, PageContainer } from '@/components/layout';
-import { Button, Card, CardContent, Loading, ErrorMessage, Breadcrumb, generatePokemonBreadcrumbs } from '@/components/ui';
+import { Button, Card, CardContent, Loading, ErrorMessage, Breadcrumb, generatePokemonBreadcrumbs, TypeIcon } from '@/components/ui';
 import { PokemonImage } from '@/components/ui/PokemonImage';
-import { TYPE_COLORS, TYPE_TRANSLATIONS, STAT_TRANSLATIONS, DEFAULT_CONFIG } from '@/constants/pokemon';
+import { STAT_TRANSLATIONS, DEFAULT_CONFIG } from '@/constants/pokemon';
 import { getPokemonImageUrl, formatPokemonId, getPokemonDescription, hasShinyVersion } from '@/lib/api';
 import { usePokemonDetail } from '@/hooks';
 import { cn } from '@/lib/utils';
+import type { PokemonTypeName } from '@/types/pokemon';
 import { PokemonStructuredData } from '@/components/seo/StructuredData';
 
 export default function PokemonDetailClient() {
@@ -131,15 +132,13 @@ export default function PokemonDetailClient() {
               {/* Types */}
               <div className="flex flex-wrap gap-3 justify-center mb-6">
                 {pokemon.types.map((type, index) => (
-                  <span
+                  <TypeIcon
                     key={index}
-                    className={cn(
-                      'text-white font-bold py-2 px-4 rounded-full text-lg',
-                      TYPE_COLORS[type.type.name as keyof typeof TYPE_COLORS] || 'bg-gray-400'
-                    )}
-                  >
-                    {TYPE_TRANSLATIONS[type.type.name as keyof typeof TYPE_TRANSLATIONS] || type.type.name}
-                  </span>
+                    type={type.type.name as PokemonTypeName}
+                    variant="badge"
+                    size="lg"
+                    showLabel={true}
+                  />
                 ))}
               </div>
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { Card, CardContent } from '@/components/ui';
+import { Card, CardContent, TypeIcon } from '@/components/ui';
 import { PokemonImage } from '@/components/ui/PokemonImage';
-import { TYPE_TRANSLATIONS, DEFAULT_CONFIG } from '@/constants/pokemon';
+import { DEFAULT_CONFIG } from '@/constants/pokemon';
 import { getPokemonImageUrl, formatPokemonId } from '@/lib/api';
-import type { Pokemon } from '@/types/pokemon';
+import type { Pokemon, PokemonTypeName } from '@/types/pokemon';
 import { cn } from '@/lib/utils';
 
 export interface PokemonCardProps {
@@ -45,20 +45,17 @@ export function PokemonCard({ pokemon, showShiny = false, className }: PokemonCa
             {pokemon.name.replace(/-/g, ' ')}
           </h3>
 
-          {/* Type tags - Push to bottom */}
-          <div className="flex flex-wrap gap-1.5 justify-center mt-auto">
+          {/* Type icons - Push to bottom */}
+          <div className="flex flex-wrap gap-2 justify-center mt-auto">
             {pokemon.types.map((type, index) => (
-              <span
+              <TypeIcon
                 key={index}
-                className={cn(
-                  'text-xs font-medium py-1.5 px-3 rounded-full border',
-                  'bg-subtle text-muted-foreground border-border',
-                  'group-hover:bg-accent group-hover:text-accent-foreground group-hover:border-secondary/30',
-                  'transition-colors duration-200'
-                )}
-              >
-                {TYPE_TRANSLATIONS[type.type.name as keyof typeof TYPE_TRANSLATIONS] || type.type.name}
-              </span>
+                type={type.type.name as PokemonTypeName}
+                variant="badge"
+                size="sm"
+                showLabel={true}
+                className="transition-transform duration-200 group-hover:scale-110"
+              />
             ))}
           </div>
         </CardContent>

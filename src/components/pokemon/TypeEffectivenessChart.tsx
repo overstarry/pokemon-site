@@ -1,7 +1,6 @@
 import React from 'react';
-import { Card, CardContent } from '@/components/ui';
-import { TYPE_COLORS, TYPE_TRANSLATIONS } from '@/constants/pokemon';
-import type { TypeDamageRelations } from '@/types/pokemon';
+import { Card, CardContent, TypeIcon } from '@/components/ui';
+import type { TypeDamageRelations, PokemonTypeName } from '@/types/pokemon';
 
 interface TypeEffectivenessChartProps {
   damageRelations: TypeDamageRelations;
@@ -28,20 +27,15 @@ export function TypeEffectivenessChart({ damageRelations, typeName }: TypeEffect
           </span>
         </div>
         <div className="flex flex-wrap gap-2">
-          {types.map((type) => {
-            const typeKey = type.name as keyof typeof TYPE_COLORS;
-            return (
-              <div
-                key={type.name}
-                className={`
-                  px-3 py-1 rounded-full text-white text-sm font-medium capitalize
-                  ${TYPE_COLORS[typeKey] || 'bg-gray-400'}
-                `}
-              >
-                {TYPE_TRANSLATIONS[typeKey] || type.name}
-              </div>
-            );
-          })}
+          {types.map((type) => (
+            <TypeIcon
+              key={type.name}
+              type={type.name as PokemonTypeName}
+              variant="badge"
+              size="sm"
+              showLabel={true}
+            />
+          ))}
         </div>
       </div>
     );

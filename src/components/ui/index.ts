@@ -22,6 +22,9 @@ export { Breadcrumb, generatePokemonBreadcrumbs, generateRandomBreadcrumbs } fro
 
 export { ThemeToggle } from './ThemeToggle';
 
+export { TypeIcon } from './TypeIcon';
+export type { TypeIconProps } from './TypeIcon';
+
 export { Pagination } from './Pagination';
 
 export {

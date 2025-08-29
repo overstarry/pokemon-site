@@ -7,8 +7,9 @@ import { TypeMatchupCard } from '@/components/pokemon/TypeMatchupCard';
 import { TypeMoveRecommendations } from '@/components/pokemon/TypeMoveRecommendations';
 import { TypeLanguageNames } from '@/components/pokemon/TypeLanguageNames';
 import { TypePokemonGrid } from '@/components/pokemon/TypePokemonGrid';
-import { Breadcrumb } from '@/components/ui';
-import { TYPE_COLORS, TYPE_TRANSLATIONS } from '@/constants/pokemon';
+import { Breadcrumb, TypeIcon } from '@/components/ui';
+import { TYPE_TRANSLATIONS } from '@/constants/pokemon';
+import type { PokemonTypeName } from '@/types/pokemon';
 import { fetchPokemonByTypeWithSlots, fetchTypeDetail } from '@/lib/api';
 import type { Pokemon, TypeDetailResponse } from '@/types/pokemon';
 
@@ -111,13 +112,12 @@ export default async function PokemonTypePage({ params }: { params: Promise<{ ty
         {/* Header Section */}
         <div className="text-center mb-12">
           <div className="mb-6">
-            <div 
-              className={`
-                w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-3xl
-                ${TYPE_COLORS[type as PokemonType] || 'bg-gray-400'}
-              `}
-            >
-              {typeName[0]?.toUpperCase()}
+            <div className="flex justify-center">
+              <TypeIcon 
+                type={type as PokemonTypeName}
+                size="lg"
+                className="w-24 h-24"
+              />
             </div>
           </div>
           

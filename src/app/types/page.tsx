@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageLayout, PageContainer } from '@/components/layout';
-import { Card, CardContent } from '@/components/ui';
-import { TYPE_COLORS, TYPE_TRANSLATIONS } from '@/constants/pokemon';
+import { Card, CardContent, TypeIcon } from '@/components/ui';
+import { TYPE_TRANSLATIONS } from '@/constants/pokemon';
 import { WebsiteStructuredData } from '@/components/seo/StructuredData';
+import type { PokemonTypeName } from '@/types/pokemon';
 
 export const metadata: Metadata = {
   title: 'Pokémon Types - Complete Type Guide | PokeVerse',
@@ -76,20 +77,18 @@ export default function PokemonTypesPage() {
             >
               <Card className="h-full hover:border-secondary/50 transition-all duration-200 group-hover:shadow-lg">
                 <CardContent className="p-6 text-center h-full flex flex-col justify-center">
-                  <div 
-                    className={`
-                      w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-2xl
-                      group-hover:scale-110 transition-transform duration-200
-                      ${TYPE_COLORS[type] || 'bg-gray-400'}
-                    `}
-                  >
-                    {TYPE_TRANSLATIONS[type]?.[0]?.toUpperCase() || type[0].toUpperCase()}
+                  <div className="mb-4 flex justify-center">
+                    <TypeIcon 
+                      type={type as PokemonTypeName}
+                      size="lg"
+                      className="w-20 h-20 group-hover:scale-110 transition-transform duration-200"
+                    />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-2 capitalize">
-                    {TYPE_TRANSLATIONS[type] || type}
+                    {TYPE_TRANSLATIONS[type as PokemonTypeName] || type}
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Explore all {TYPE_TRANSLATIONS[type] || type} type Pokémon
+                    Explore all {TYPE_TRANSLATIONS[type as PokemonTypeName] || type} type Pokémon
                   </p>
                 </CardContent>
               </Card>

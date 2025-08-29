@@ -84,7 +84,7 @@ export function Footer({ className }: FooterProps) {
         <div className="border-t border-border mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-muted-foreground text-sm text-center md:text-left">
-              © {currentYear} PokeVerse. Built with Next.js and React
+              © {currentYear} PokeVerse. 
             </p>
 
             <p className="text-muted-foreground text-sm">

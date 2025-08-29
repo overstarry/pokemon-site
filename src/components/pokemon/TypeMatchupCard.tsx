@@ -1,8 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { Card, CardContent } from '@/components/ui';
-import { TYPE_COLORS, TYPE_TRANSLATIONS } from '@/constants/pokemon';
-import type { TypeDamageRelations } from '@/types/pokemon';
+import { Card, CardContent, TypeIcon } from '@/components/ui';
+import type { TypeDamageRelations, PokemonTypeName } from '@/types/pokemon';
 
 interface TypeMatchupCardProps {
   damageRelations: TypeDamageRelations;
@@ -23,22 +22,20 @@ export function TypeMatchupCard({ damageRelations, typeName }: TypeMatchupCardPr
         <h4 className="font-semibold text-foreground mb-2">{title}</h4>
         <p className="text-sm text-muted-foreground mb-3">{description}</p>
         <div className="flex flex-wrap gap-2">
-          {types.slice(0, 6).map((type) => {
-            const typeKey = type.name as keyof typeof TYPE_COLORS;
-            return (
-              <Link
-                key={type.name}
-                href={`/types/${type.name}`}
-                className={`
-                  px-2 py-1 rounded text-white text-xs font-medium capitalize
-                  hover:opacity-80 transition-opacity
-                  ${TYPE_COLORS[typeKey] || 'bg-gray-400'}
-                `}
-              >
-                {TYPE_TRANSLATIONS[typeKey] || type.name}
-              </Link>
-            );
-          })}
+          {types.slice(0, 6).map((type) => (
+            <Link
+              key={type.name}
+              href={`/types/${type.name}`}
+              className="hover:opacity-80 transition-opacity"
+            >
+              <TypeIcon
+                type={type.name as PokemonTypeName}
+                variant="badge"
+                size="sm"
+                showLabel={true}
+              />
+            </Link>
+          ))}
           {types.length > 6 && (
             <span className="px-2 py-1 text-xs text-muted-foreground">
               +{types.length - 6} more
