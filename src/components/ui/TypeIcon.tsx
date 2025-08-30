@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { TYPE_COLORS, TYPE_GRADIENTS, TYPE_TRANSLATIONS } from '@/constants/pokemon';
+import { TYPE_GRADIENTS, TYPE_TRANSLATIONS } from '@/constants/pokemon';
 import type { PokemonTypeName } from '@/types/pokemon';
 import { cn } from '@/lib/utils';
 
@@ -54,7 +54,6 @@ export function TypeIcon({
   showLabel = false 
 }: TypeIconProps) {
   const iconFile = TYPE_ICON_FILES[type];
-  const typeColor = TYPE_COLORS[type] || 'bg-gray-400';
   const typeGradient = TYPE_GRADIENTS[type] || 'from-gray-400 to-gray-500';
   const typeName = TYPE_TRANSLATIONS[type] || type;
 

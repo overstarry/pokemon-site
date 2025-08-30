@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageLayout, PageContainer } from '@/components/layout';
 import { Card, CardContent } from '@/components/ui';
+import { RefreshButton } from '@/components/ui/RefreshButton';
 
 export const metadata: Metadata = {
   title: 'Offline | PokeVerse',
@@ -17,10 +18,10 @@ export default function OfflinePage() {
           <div className="mb-8">
             <div className="text-6xl mb-4">📱</div>
             <h1 className="text-4xl font-bold text-foreground mb-4">
-              You're Offline
+              You&apos;re Offline
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              Don't worry! You can still browse cached Pokémon data and use some features while offline.
+              Don&apos;t worry! You can still browse cached Pokémon data and use some features while offline.
             </p>
           </div>
 
@@ -52,7 +53,7 @@ export default function OfflinePage() {
 
           <div className="space-y-4">
             <p className="text-sm text-muted-foreground">
-              Once you're back online, all features will be available again.
+              Once you&apos;re back online, all features will be available again.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -62,12 +63,9 @@ export default function OfflinePage() {
               >
                 Return Home
               </Link>
-              <button 
-                onClick={() => window.location.reload()}
-                className="inline-flex items-center justify-center px-6 py-3 border border-border rounded-lg hover:bg-secondary/10 transition-colors font-medium"
-              >
+              <RefreshButton className="inline-flex items-center justify-center px-6 py-3 border border-border rounded-lg hover:bg-secondary/10 transition-colors font-medium">
                 Try Again
-              </button>
+              </RefreshButton>
             </div>
           </div>
         </div>

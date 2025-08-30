@@ -72,7 +72,7 @@ export default function GettingStartedGuide() {
                 essential foundation you need to begin your adventure with confidence.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Whether you're completely new to Pokémon or returning after a long break, these fundamentals 
+                Whether you&apos;re completely new to Pokémon or returning after a long break, these fundamentals 
                 will set you up for success from day one.
               </p>
             </section>
@@ -162,7 +162,7 @@ export default function GettingStartedGuide() {
                       <div>
                         <h3 className="text-xl font-semibold mb-2">Build a Balanced Team</h3>
                         <p className="text-muted-foreground leading-relaxed mb-4">
-                          A good team covers each other's weaknesses. Aim for:
+                          A good team covers each other&apos;s weaknesses. Aim for:
                         </p>
                         <ul className="space-y-1 text-muted-foreground">
                           <li>• Different types to handle various opponents</li>
@@ -184,7 +184,7 @@ export default function GettingStartedGuide() {
                         <p className="text-muted-foreground leading-relaxed">
                           Understanding which types are effective against others is crucial. Fire beats Grass, 
                           Water beats Fire, Grass beats Water - but there are 18 types total with complex 
-                          interactions. Don't worry about memorizing everything at once!
+                          interactions. Don&apos;t worry about memorizing everything at once!
                         </p>
                       </div>
                     </div>
@@ -200,7 +200,7 @@ export default function GettingStartedGuide() {
                 <Card>
                   <CardContent className="p-4">
                     <p className="text-muted-foreground">
-                      <strong className="text-foreground">💡 Tip:</strong> Don't be afraid to experiment! 
+                      <strong className="text-foreground">💡 Tip:</strong> Don&apos;t be afraid to experiment! 
                       Try different Pokémon combinations and see what works for your playstyle.
                     </p>
                   </CardContent>
@@ -227,9 +227,9 @@ export default function GettingStartedGuide() {
             </section>
 
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-foreground mb-6">What's Next?</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-6">What&apos;s Next?</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Now that you understand the basics, you're ready to dive deeper into the world of Pokémon. 
+                Now that you understand the basics, you&apos;re ready to dive deeper into the world of Pokémon. 
                 Consider exploring these topics next:
               </p>
               

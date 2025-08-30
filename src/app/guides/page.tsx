@@ -84,7 +84,7 @@ const GUIDE_CATEGORIES = [
   },
   {
     title: 'Training & Evolution',
-    description: 'Optimize your Pokémon\'s growth and evolution',
+    description: 'Optimize your Pokémon&apos;s growth and evolution',
     icon: '📈',
     guides: [
       {
@@ -149,7 +149,7 @@ export default function GuidesPage() {
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Master the world of Pokémon with our comprehensive guides. From beginner basics 
-            to advanced competitive strategies, we've got everything you need to become a Pokémon Champion.
+            to advanced competitive strategies, we&apos;ve got everything you need to become a Pokémon Champion.
           </p>
         </div>
 

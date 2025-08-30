@@ -126,7 +126,7 @@ export default function TypeEffectivenessGuide() {
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-4 text-green-600">Super Effective (2x Damage)</h3>
                     <p className="text-muted-foreground leading-relaxed mb-4">
-                      When a move is "super effective," it deals double damage. This is your best-case scenario 
+                      When a move is &quot;super effective,&quot; it deals double damage. This is your best-case scenario 
                       for offense and what you want to avoid on defense.
                     </p>
                     <div className="space-y-3">
@@ -151,8 +151,8 @@ export default function TypeEffectivenessGuide() {
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-4 text-red-600">Not Very Effective (0.5x Damage)</h3>
                     <p className="text-muted-foreground leading-relaxed mb-4">
-                      When a move is "not very effective," it deals half damage. You want to avoid using 
-                      these matchups offensively, but they're great for defensive switching.
+                      When a move is &quot;not very effective,&quot; it deals half damage. You want to avoid using 
+                      these matchups offensively, but they&apos;re great for defensive switching.
                     </p>
                     <div className="space-y-3">
                       {RESIST_EXAMPLES.map((example, index) => (
@@ -177,7 +177,7 @@ export default function TypeEffectivenessGuide() {
                     <h3 className="text-xl font-semibold mb-4 text-gray-600">No Effect (0x Damage)</h3>
                     <p className="text-muted-foreground leading-relaxed">
                       Some type combinations completely negate damage. For example, Ground-type moves 
-                      have no effect on Flying-type Pokémon, and Ghost-type moves don't affect Normal-type Pokémon.
+                      have no effect on Flying-type Pokémon, and Ghost-type moves don&apos;t affect Normal-type Pokémon.
                     </p>
                   </CardContent>
                 </Card>
@@ -206,7 +206,7 @@ export default function TypeEffectivenessGuide() {
                         <ul className="space-y-1 text-muted-foreground">
                           <li>• Water (extinguishes fire)</li>
                           <li>• Ground (smothers fire)</li>
-                          <li>• Rock (rock doesn't burn)</li>
+                          <li>• Rock (rock doesn&apos;t burn)</li>
                         </ul>
                       </div>
                     </div>
@@ -274,8 +274,8 @@ export default function TypeEffectivenessGuide() {
                     <ul className="space-y-2 text-muted-foreground">
                       <li>• Always aim for super effective moves when possible</li>
                       <li>• Switch to a Pokémon with type advantage before attacking</li>
-                      <li>• Consider the opponent's types before choosing your move</li>
-                      <li>• Don't just use your strongest move - use the most effective one</li>
+                      <li>• Consider the opponent&apos;s types before choosing your move</li>
+                      <li>• Don&apos;t just use your strongest move - use the most effective one</li>
                     </ul>
                   </CardContent>
                 </Card>
@@ -287,7 +287,7 @@ export default function TypeEffectivenessGuide() {
                       <li>• Switch to Pokémon that resist incoming attacks</li>
                       <li>• Use dual-types strategically (they can resist more types)</li>
                       <li>• Predict opponent moves based on type advantages</li>
-                      <li>• Don't stay in bad matchups - switching is often the right choice</li>
+                      <li>• Don&apos;t stay in bad matchups - switching is often the right choice</li>
                     </ul>
                   </CardContent>
                 </Card>
@@ -309,7 +309,7 @@ export default function TypeEffectivenessGuide() {
             <section className="mb-12">
               <h2 className="text-2xl font-bold text-foreground mb-6">Practice Makes Perfect</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Don't worry about memorizing every type interaction immediately. Start with the basics 
+                Don&apos;t worry about memorizing every type interaction immediately. Start with the basics 
                 and gradually learn more complex matchups through practice. The most important thing is 
                 to start thinking strategically about type advantages in every battle.
               </p>
@@ -320,7 +320,7 @@ export default function TypeEffectivenessGuide() {
                   <ul className="space-y-2 text-muted-foreground">
                     <li>• Many type interactions are logical (fire burns grass, water beats fire)</li>
                     <li>• Focus on learning one type thoroughly at a time</li>
-                    <li>• Practice with your favorite Pokémon's types first</li>
+                    <li>• Practice with your favorite Pokémon&apos;s types first</li>
                     <li>• Use our type chart tools to quickly check interactions</li>
                   </ul>
                 </CardContent>
