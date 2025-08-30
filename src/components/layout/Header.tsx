@@ -13,6 +13,7 @@ const navItems = [
   { href: '/', label: 'Home' },
   { href: '/pokemon', label: 'Database' },
   { href: '/types', label: 'Types' },
+  { href: '/guides', label: 'Guides' },
   { href: '/daily', label: 'Daily' },
   { href: '/random', label: 'Random' },
 ];

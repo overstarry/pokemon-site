@@ -46,7 +46,40 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'always' as const,
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/guides`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/offline`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
+    },
   ]
+
+  // Guide pages
+  const guidePages = [
+    'getting-started',
+    'type-effectiveness-basics',
+    'first-pokemon-team',
+    'advanced-type-matchups',
+    'status-effects-guide',
+    'competitive-team-building',
+    'evolution-strategies',
+    'stats-and-ivs',
+    'move-selection',
+    'catching-rare-pokemon',
+    'shiny-hunting',
+    'legendary-encounters'
+  ].map(slug => ({
+    url: `${baseUrl}/guides/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
 
   // Generate Pokemon detail pages
   // Including all known Pokemon (up to 1025 which covers all current generations)
@@ -82,5 +115,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.75,
   }));
 
-  return [...staticPages, ...typePages, ...pokemonPages]
+  return [...staticPages, ...guidePages, ...typePages, ...pokemonPages]
 }
